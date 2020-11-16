@@ -45,3 +45,7 @@ body {
   background-color: #E9C46A;
   border: none;
 }
+
+.errors {
+  color: darkred;
+}
