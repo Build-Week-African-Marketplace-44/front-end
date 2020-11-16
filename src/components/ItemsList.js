@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { MarketContext } from "./../contexts/MarketContext";
 
 const ItemsList = () => {
-  const [categories, setCategories] = useState(["cat1", "cat2", "cat3"]);
-  const [locations, setLocations] = useState(["loc1", "loc2", "loc3"]);
+  const [items, setItems, locations, categories] = useContext(MarketContext);
+
+  const [categoryValue, setCategoryValue] = useState("");
+  const [locationValue, setLocationValue] = useState("");
 
   let categoryOptions = categories.map((category) => (
     <option key={category}>{category}</option>
@@ -12,18 +15,27 @@ const ItemsList = () => {
     <option key={location}>{location}</option>
   ));
 
+  const handleCategoryChange = (e) => {
+    setCategoryValue(e.target.value)
+  };
+
   return (
     <div className='ItemsList'>
       <header>
         <h1>Items List</h1>
         <label>
-            Item Category: 
-          <select name='category' id='category'>
+          Item Category:
+          <select
+            onChange={handleCategoryChange}
+            value={categoryValue}
+            name='category'
+            id='category'
+          >
             {categoryOptions}
           </select>
         </label>
         <label>
-            Location: 
+          Location:
           <select name='location' id='location'>
             {locationOptions}
           </select>

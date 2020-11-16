@@ -13,7 +13,7 @@ const myInitialItems = {
 
 const MyItemsList = (props) => {
 
-    const [items, setItems] = useContext(MarketContext)
+    const [items, setItems, locations, categories] = useContext(MarketContext)
     const [myItems, setMyItems] = useState(myInitialItems)
 
     useEffect(() => {
@@ -27,9 +27,6 @@ const MyItemsList = (props) => {
                 .catch(error => console.log("You have an error", error));
         };
     }, []);
-
-
-
 
     return (
         <div className='myItemsList'>

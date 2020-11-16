@@ -1,42 +1,62 @@
 export const productList = [
     {
-        product: 'eggs',
+        product: 'Eggs',
         price: 12.99,
-        category: 'animal products',
-        subCategory: 'animal products',
+        category: 'Animal Products',
+        subCategory: 'Animal Products',
         location: 'Walla Walla',
-        seller: 'user one'
+        seller: 'User One'
     },
     {
-        product: 'milk',
+        product: 'Milk',
         price: 10,
-        category: 'animal products',
-        subCategory: 'animal products',
+        category: 'Animal Products',
+        subCategory: 'Animal Products',
         location: 'Walla Walla',
-        seller: 'user one'
+        seller: 'User One'
     },
     {
         product: 'beans',
         price: 10,
-        category: 'beans',
-        subCategory: 'beans',
+        category: 'Beans',
+        subCategory: 'Beans',
         location: 'Walla Walla',
-        seller: 'user one'
+        seller: 'User One'
     },
     {
         product: 'maize bran',
         price: 10,
-        category: 'cereals',
-        subCategory: 'maize',
+        category: 'Cereals',
+        subCategory: 'Maize',
         location: 'Newport News',
-        seller: 'user two'
+        seller: 'User Two'
     },
     {
         product: 'kahama rice',
         price: 10,
-        category: 'cereals',
-        subCategory: 'rice',
+        category: 'Cereals',
+        subCategory: 'Rice',
         location: 'Newport News',
-        seller: 'user two'
+        seller: 'User Two'
     }
+]
+
+export const locationsData = [
+    'All Locations',
+    'Newport News',
+    'Walla Walla',
+    'Timbuktu',
+    'Nairobi',
+    'Cape Town',
+    'Cairo'
+]
+
+export const categoriesData = [
+    'All Categories',
+    'Animal Products',
+    'Beans',
+    'Cereals',
+    'Fruits',
+    'Peas',
+    'Roots & tubers'
 ]
