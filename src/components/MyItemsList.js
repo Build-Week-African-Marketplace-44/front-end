@@ -1,5 +1,5 @@
 import react, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 import axios from 'axios';
 
 const myInitialItems = {
@@ -10,7 +10,7 @@ const myInitialItems = {
     location: ''
 };
 
-MyItemsList = (props) => {
+const MyItemsList = (props) => {
     const [myItems, setMyItems] = useState(myInitialItems)
 
     useEffect(() => {

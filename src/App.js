@@ -1,5 +1,5 @@
 import react, { useState, useEffect, createContext } from 'react'
-import { Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 import { productList } from './data'
 import Dashboard from './components/Dashboard';
@@ -20,7 +20,7 @@ const App = () => {
       <Router>
         <div className="App">
           <header className="App-header">
-            <h1>African Marketplace</h1>
+            <h1>Sauti Marketplace</h1>
           </header>
             <Dashboard />
             <Switch>
