@@ -1,3 +1,4 @@
+
 import react, { useState, useEffect, createContext } from 'react'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
@@ -17,20 +18,22 @@ const App = () => {
   return (
 
     <MarketContext.Provider value={[items, setItems]}>
-      <Router>
+
         <div className="App">
           <header className="App-header">
             <h1>Sauti Marketplace</h1>
           </header>
             <Dashboard />
+            <Router>
             <Switch>
               <Route exact path='/' component={MyItemsList} />
               <Route path='/marketplace' component={ItemsList} />
               <Route path='/new-item' component={NewItemForm} />
               <Route path='/profile' component={ProfileForm} />
           </Switch>
+          </Router>
         </div>
-      </Router>
+
     </MarketContext.Provider>
   );
 }

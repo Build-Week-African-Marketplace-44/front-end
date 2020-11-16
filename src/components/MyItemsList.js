@@ -13,16 +13,16 @@ const myInitialItems = {
 const MyItemsList = (props) => {
     const [myItems, setMyItems] = useState(myInitialItems)
 
-    useEffect(() => {
-        const getMyItems = () => {
-            axios
-                .get('')
-                .then(res => {
-                    setMyItems(res.data);
-                })
-                .catch(error => console.log("You have an error", error));
-        };
-    }, []);
+    // useEffect(() => {
+    //     const getMyItems = () => {
+    //         axios
+    //             .get('')
+    //             .then(res => {
+    //                 setMyItems(res.data);
+    //             })
+    //             .catch(error => console.log("You have an error", error));
+    //     };
+    // }, []);
 
 
 
