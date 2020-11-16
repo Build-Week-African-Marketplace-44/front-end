@@ -1,6 +1,7 @@
-import react, { useState, useEffect } from 'react';
+import react, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
+import { MarketContext } from '../contexts/MarketContext';
 
 const myInitialItems = {
     name: '',
@@ -11,9 +12,12 @@ const myInitialItems = {
 };
 
 const MyItemsList = (props) => {
+
+    const [items, setItems] = useContext(MarketContext)
     const [myItems, setMyItems] = useState(myInitialItems)
 
     useEffect(() => {
+        console.log(items);
         const getMyItems = () => {
             axios
                 .get('')
@@ -23,7 +27,6 @@ const MyItemsList = (props) => {
                 .catch(error => console.log("You have an error", error));
         };
     }, []);
-
 
 
 
