@@ -5,7 +5,8 @@ export const productList = [
         category: 'Animal Products',
         subCategory: 'Animal Products',
         location: 'Walla Walla',
-        seller: 'User One'
+        seller: 'User One',
+        id: '01'
     },
     {
         product: 'Milk',
@@ -13,31 +14,35 @@ export const productList = [
         category: 'Animal Products',
         subCategory: 'Animal Products',
         location: 'Walla Walla',
-        seller: 'User One'
+        seller: 'User One',
+        id: '02'
     },
     {
-        product: 'beans',
+        product: 'Beans',
         price: 10,
         category: 'Beans',
         subCategory: 'Beans',
         location: 'Walla Walla',
-        seller: 'User One'
+        seller: 'User One',
+        id: '03'
     },
     {
-        product: 'maize bran',
+        product: 'Maize Bran',
         price: 10,
         category: 'Cereals',
         subCategory: 'Maize',
         location: 'Newport News',
-        seller: 'User Two'
+        seller: 'User Two',
+        id: '04'
     },
     {
-        product: 'kahama rice',
+        product: 'Kahama Rice',
         price: 10,
         category: 'Cereals',
         subCategory: 'Rice',
         location: 'Newport News',
-        seller: 'User Two'
+        seller: 'User Two',
+        id: '05'
     }
 ]
 
