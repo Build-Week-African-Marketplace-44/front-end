@@ -1,6 +1,7 @@
-import react, { useState, useEffect } from 'react';
-
+import react, { useState, useEffect, useContext } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
+import { MarketContext } from '../contexts/MarketContext';
 
 const myInitialItems = {
     name: '',
@@ -10,21 +11,22 @@ const myInitialItems = {
     location: ''
 };
 
-const MyItemsList = (props) => {
+const MyItemsList = () => {
+
+    const [items, setItems] = useContext(MarketContext)
     const [myItems, setMyItems] = useState(myInitialItems)
 
-    // useEffect(() => {
-    //     const getMyItems = () => {
-    //         axios
-    //             .get('')
-    //             .then(res => {
-    //                 setMyItems(res.data);
-    //             })
-    //             .catch(error => console.log("You have an error", error));
-    //     };
-    // }, []);
-
-
+    useEffect(() => {
+        console.log(items);
+        const getMyItems = () => {
+            axios
+                .get('')
+                .then(res => {
+                    setMyItems(res.data);
+                })
+                .catch(error => console.log("You have an error", error));
+        };
+    }, []);
 
 
 

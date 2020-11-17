@@ -1,17 +1,24 @@
-
+// libraries
 import react, { useState, useEffect, createContext } from 'react'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
+// data
 import { productList } from './data'
+
+//components
 import Dashboard from './components/Dashboard';
 import MyItemsList from './components/MyItemsList';
 import ProfileForm from './forms/ProfileForm';
 import NewItemForm from './forms/NewItemForm';
 import ItemsList from './components/ItemsList';
 
+// contexts
+import { MarketContext } from './contexts/MarketContext';
+
+// styles
 import './App.css';
 
-export const MarketContext = createContext();
+// export const MarketContext = createContext();
 const App = () => {
   const [items, setItems] = useState(productList)
 
