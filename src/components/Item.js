@@ -7,6 +7,7 @@ const Item = (props) => {
       <p>Price: {props.itemData.price}</p>
       <p>Seller: {props.itemData.seller}</p>
       <p>Market Location: {props.itemData.location}</p>
+      <p>Category: {props.itemData.category}</p>
       <p></p>
     </div>
   );
