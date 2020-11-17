@@ -14,6 +14,8 @@ import ItemsList from "./components/ItemsList";
 import Signup from "./forms/Signup";
 import Login from "./forms/Login";
 
+import PrivateRoute from "./components/PrivateRoute";
+
 // contexts
 import { MarketContext } from "./contexts/MarketContext";
 
@@ -34,15 +36,20 @@ const App = () => {
           <h1>African Marketplace</h1>
         </header>
         <Router>
-          <Dashboard setIsLoggedIn={setIsLoggedIn}/>
+          {isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : null}
 
           <Switch>
-            <Route exact path='/' component={MyItemsList} />
-            <Route path='/marketplace' component={ItemsList} />
-            <Route path='/new-item' component={NewItemForm} />
-            <Route path='/profile' component={ProfileForm} />
+            <PrivateRoute exact path='/' component={MyItemsList} />
+            <PrivateRoute exact path='/marketplace' component={ItemsList} />
+            <PrivateRoute exact path='/new-item' component={NewItemForm} />
+            <PrivateRoute exact path='/profile' component={ProfileForm} />
             <Route path='/signup' component={Signup} />
-            <Route path="/login" component={Login} />
+            <Route
+              path='/login'
+              render={(props) => {
+                return <Login {...props} setIsLoggedIn={setIsLoggedIn} />;
+              }}
+            />
           </Switch>
         </Router>
       </div>

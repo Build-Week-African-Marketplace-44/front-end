@@ -19,7 +19,7 @@ const initialFormErrors = {
 };
 const initialButtonDisabled = true;
 
-export default function Login() {
+export default function Login(props) {
   const { push } = useHistory();
 
   const [userData, setUserData] = useState(initialUserData);
@@ -48,7 +48,9 @@ export default function Login() {
       .post(`${post_URL}/auth/login`, userData)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("username", userData.username);
         console.log(res);
+        props.setIsLoggedIn(true);
         push('/');
       })
       .catch((fuzz) => {
