@@ -11,6 +11,8 @@ import MyItemsList from "./components/MyItemsList";
 import ProfileForm from "./forms/ProfileForm";
 import NewItemForm from "./forms/NewItemForm";
 import ItemsList from "./components/ItemsList";
+import Signup from "./forms/Signup";
+import Login from "./forms/Login";
 
 // contexts
 import { MarketContext } from "./contexts/MarketContext";
@@ -39,6 +41,8 @@ const App = () => {
             <Route path='/marketplace' component={ItemsList} />
             <Route path='/new-item' component={NewItemForm} />
             <Route path='/profile' component={ProfileForm} />
+            <Route path='/signup' component={Signup} />
+            <Route path="/login" component={Login} />
           </Switch>
         </Router>
       </div>

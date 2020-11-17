@@ -58,8 +58,15 @@ export const locationsData = [
 export const categoriesData = [
     'Animal Products',
     'Beans',
+    'Candy',
     'Cereals',
+    'Cereals-Other',
+    'Coffee',
+    'corn',
     'Fruits',
     'Peas',
-    'Roots & tubers'
+    'Roots & Tubers',
+    'Seeds & Nuts',
+    'Vegetable',
+    'Vegetables'
 ]

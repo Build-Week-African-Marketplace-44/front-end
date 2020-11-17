@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { MarketContext } from "./../contexts/MarketContext";
+import axiosWithAUth from "./../utils/axiosWithAuth";
 
 import Item from "./Item";
 
@@ -8,7 +9,35 @@ const ItemsList = () => {
 
   const [categoryValue, setCategoryValue] = useState("All Categories");
   const [locationValue, setLocationValue] = useState("All Locations");
+
   const [currentItems, setCurrentItems] = useState(items);
+  const [locationsList, setLocationsList] = useState([]);
+
+  useEffect(() => {
+    getItemsData();
+  }, []);
+
+  const getItemsData = () => {
+    axiosWithAUth()
+      .get("/items")
+      .then((req) => {
+        console.log(req);
+        setCurrentItems(req.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const setLocations = () => {
+    setLocationsList(
+      currentItems.map((item) => {
+        if (!locationsList.includes(item.location)) {
+          return item.location;
+        }
+      })
+    );
+  };
 
   let categoryOptions = categories.map((category) => (
     <option key={category}>{category}</option>
@@ -65,7 +94,7 @@ const ItemsList = () => {
               name='category'
               id='category'
             >
-                <option key='All Categories'>All Categories</option>
+              <option key='All Categories'>All Categories</option>
               {categoryOptions}
             </select>
           </label>

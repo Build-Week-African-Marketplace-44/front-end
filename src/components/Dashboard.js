@@ -9,7 +9,7 @@ const Dashboard = (props) => {
     const logout = (p) => {
         localStorage.removeItem('token');
         props.setIsLoggedIn(false); 
-        push('/');
+        push('/login');
     }
 
     return (
