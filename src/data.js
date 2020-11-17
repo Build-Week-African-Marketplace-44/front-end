@@ -1,42 +1,67 @@
 export const productList = [
     {
-        product: 'eggs',
+        product: 'Eggs',
         price: 12.99,
-        category: 'animal products',
-        subCategory: 'animal products',
+        category: 'Animal Products',
+        subCategory: 'Animal Products',
         location: 'Walla Walla',
-        seller: 'user one'
+        seller: 'User One',
+        id: '01'
     },
     {
-        product: 'milk',
+        product: 'Milk',
         price: 10,
-        category: 'animal products',
-        subCategory: 'animal products',
+        category: 'Animal Products',
+        subCategory: 'Animal Products',
         location: 'Walla Walla',
-        seller: 'user one'
+        seller: 'User One',
+        id: '02'
     },
     {
-        product: 'beans',
+        product: 'Beans',
         price: 10,
-        category: 'beans',
-        subCategory: 'beans',
+        category: 'Beans',
+        subCategory: 'Beans',
         location: 'Walla Walla',
-        seller: 'user one'
+        seller: 'User One',
+        id: '03'
     },
     {
-        product: 'maize bran',
+        product: 'Maize Bran',
         price: 10,
-        category: 'cereals',
-        subCategory: 'maize',
+        category: 'Cereals',
+        subCategory: 'Maize',
         location: 'Newport News',
-        seller: 'user two'
+        seller: 'User Two',
+        id: '04'
     },
     {
-        product: 'kahama rice',
+        product: 'Kahama Rice',
         price: 10,
-        category: 'cereals',
-        subCategory: 'rice',
+        category: 'Cereals',
+        subCategory: 'Rice',
         location: 'Newport News',
-        seller: 'user two'
+        seller: 'User Two',
+        id: '05'
     }
+]
+
+export const locationsData = [
+    'All Locations',
+    'Newport News',
+    'Walla Walla',
+    'Timbuktu',
+    'Nairobi',
+    'Cape Town',
+    'Cairo'
+]
+
+export const categoriesData = [
+    'All Categories',
+    'Animal Products',
+    'Beans',
+    'Cereals',
+    'Fruits',
+    'Peas',
+    'Roots & tubers'
 ]

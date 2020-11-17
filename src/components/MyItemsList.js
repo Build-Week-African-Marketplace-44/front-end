@@ -13,7 +13,7 @@ const myInitialItems = {
 
 const MyItemsList = () => {
 
-    const [items, setItems] = useContext(MarketContext)
+    const [items, setItems, locations, categories] = useContext(MarketContext)
     const [myItems, setMyItems] = useState(myInitialItems)
 
     useEffect(() => {
@@ -28,8 +28,11 @@ const MyItemsList = () => {
         };
     }, []);
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 849bb25f923c0d50a4cd675d23b5f61c05bc51f9
     return (
         <div className='myItemsList'>
             <h1>My store</h1>
