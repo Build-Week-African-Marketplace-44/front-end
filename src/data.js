@@ -47,7 +47,6 @@ export const productList = [
 ]
 
 export const locationsData = [
-    'All Locations',
     'Newport News',
     'Walla Walla',
     'Timbuktu',
@@ -57,11 +56,17 @@ export const locationsData = [
 ]
 
 export const categoriesData = [
-    'All Categories',
     'Animal Products',
     'Beans',
+    'Candy',
     'Cereals',
+    'Cereals-Other',
+    'Coffee',
+    'corn',
     'Fruits',
     'Peas',
-    'Roots & tubers'
+    'Roots & Tubers',
+    'Seeds & Nuts',
+    'Vegetable',
+    'Vegetables'
 ]
