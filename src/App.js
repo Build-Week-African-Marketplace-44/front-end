@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // libraries
 import react, { useState, useEffect, createContext } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
@@ -45,6 +46,16 @@ const App = () => {
         </div>
      
     </MarketContext.Provider>
+=======
+import React,{ useState } from "react"
+import './App.css';
+
+
+function App() {
+  return (
+    <>
+    </>
+>>>>>>> ddac19b2e13c42812c4d0b68a54cdeb95457219a
   );
 }
 
