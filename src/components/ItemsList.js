@@ -20,7 +20,6 @@ const ItemsList = () => {
 
     const handleCategoryChange = (e) => {
       setCategoryValue(e.target.value);
-      console.log(categoryValue);
     //   if (categoryValue === "All Categories") {
     //     setCurrentItems(items);
     //   } else {
@@ -61,28 +60,48 @@ const ItemsList = () => {
   //       console.log()
   //   }
 
-  const handleSubmit = (e) => {
-      console.log(categoryValue)
-      console.log(locationValue)
-      e.preventDefault();
-    // setCurrentItems(items);
+//   const handleSubmit = (e) => {
+//       console.log(categoryValue)
+//       console.log(locationValue)
+//       e.preventDefault();
+//     // setCurrentItems(items);
+//     if (categoryValue !== "All Categories") {
+//       setCurrentItems(
+//         items.filter((item) => {
+//           return categoryValue === item.category;
+//         })
+//       );
+//     } else {
+//         setCurrentItems(items);
+//     }
+//     if (locationValue !== "All Locations") {
+//       setCurrentItems(
+//         currentItems.filter((item) => {
+//           return locationValue === item.location;
+//         })
+//       );
+//     } 
+//   };
+
+const handleSubmit = e => {
+    e.preventDefault()
+    let itemsByCategory = items;
+    let itemsByLocation = items;
     if (categoryValue !== "All Categories") {
-      setCurrentItems(
-        items.filter((item) => {
-          return categoryValue === item.category;
+        itemsByCategory = items.filter(item => {
+            return item.category === categoryValue
         })
-      );
-    } else {
-        setCurrentItems(items);
     }
     if (locationValue !== "All Locations") {
-      setCurrentItems(
-        currentItems.filter((item) => {
-          return locationValue === item.location;
+        itemsByLocation = items.filter(item => {
+            return item.location === locationValue
         })
-      );
-    } 
-  };
+    }
+    setCurrentItems(itemsByCategory.filter(item => {
+        return itemsByLocation.includes(item);
+    }))
+    console.log(itemsByCategory, itemsByLocation);
+}
 
   return (
     <div className='ItemsList'>
@@ -90,7 +109,7 @@ const ItemsList = () => {
         <h1>Marketplace</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            Item Category:
+            Item Category:&nbsp;
             <select
               onChange={handleCategoryChange}
               value={categoryValue}
@@ -101,7 +120,7 @@ const ItemsList = () => {
             </select>
           </label>
           <label>
-            Location:
+            Location:&nbsp;
             <select
               onChange={handleLocationChange}
               value={locationValue}
