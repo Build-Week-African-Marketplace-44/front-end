@@ -10,6 +10,8 @@
     flex-direction: column;
     justify-content: center;
     margin-bottom: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 .about-img img {
@@ -28,6 +30,7 @@
     text-align: center;
     background-color: #E9C46A;
     color: #264653;
+    border-radius: 8px;
 }
 
 
