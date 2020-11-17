@@ -1,0 +1,55 @@
+
+.market-page {
+    display: flex;
+    justify-content: space-between;
+}
+
+.market-field {
+    background-color: #264653;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    align-content: flex-start;
+}
+
+.market-panel {
+    background-color: #3B5864;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-bottom: 30%;
+}
+
+.market-panel h1 {
+    color: #E9C46A;
+}
+
+.market-panel button {
+    width: 35%;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 15px;
+    text-align: center;
+    background-color: #E9C46A;
+    border: none;
+  }
+
+.market-item {
+    background-color: #3B5864;
+    border-radius: 8px;
+    margin: 1em 1em 1em 1em;
+    display: flex;
+    flex-direction: column;
+    font-size: xx-large;
+}
+
+
+
+.item-bottom {
+    background-color: #264653;
+    border-radius: 0px 0px 8px 8px;
+    border: 1px #E9C46A solid;
+
+}

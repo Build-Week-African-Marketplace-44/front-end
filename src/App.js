@@ -15,6 +15,9 @@ import ItemsList from './components/ItemsList';
 //About page
 import About from './About';
 
+//Market page
+import Market from './Market';
+
 // contexts
 import { MarketContext } from './contexts/MarketContext';
 
@@ -44,6 +47,7 @@ const App = () => {
               <Route path='/new-item' component={NewItemForm} />
               <Route path='/profile' component={ProfileForm} />
               <Route path='/about' component={About} />
+              <Route path='/market' component={Market} />
           </Switch>
           </Router>
         </div>
