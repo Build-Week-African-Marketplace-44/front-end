@@ -23,6 +23,7 @@ const App = () => {
   const [items, setItems] = useState(productList);
   const [locations, setLocations] = useState(locationsData);
   const [categories, setCategories] = useState(categoriesData);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <MarketContext.Provider value={[items, setItems, locations, categories]}>
@@ -31,7 +32,7 @@ const App = () => {
           <h1>African Marketplace</h1>
         </header>
         <Router>
-          <Dashboard />
+          <Dashboard setIsLoggedIn={setIsLoggedIn}/>
 
           <Switch>
             <Route exact path='/' component={MyItemsList} />
