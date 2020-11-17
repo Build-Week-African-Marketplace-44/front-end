@@ -12,6 +12,9 @@ import ProfileForm from './forms/ProfileForm';
 import NewItemForm from './forms/NewItemForm';
 import ItemsList from './components/ItemsList';
 
+//About page
+import About from './About';
+
 // contexts
 import { MarketContext } from './contexts/MarketContext';
 
@@ -40,6 +43,7 @@ const App = () => {
               <Route path='/marketplace' component={ItemsList} />
               <Route path='/new-item' component={NewItemForm} />
               <Route path='/profile' component={ProfileForm} />
+              <Route path='/about' component={About} />
           </Switch>
           </Router>
         </div>

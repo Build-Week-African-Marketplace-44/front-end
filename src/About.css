@@ -1,0 +1,33 @@
+.about-page {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.about-person {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.about-img img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+    border: 2px #E9C46A solid;
+}
+
+.about-person h1 {
+    text-align: center;
+    color: #E9C46A;
+}
+
+.about-text {
+    text-align: center;
+    background-color: #E9C46A;
+    color: #264653;
+}
+
+
