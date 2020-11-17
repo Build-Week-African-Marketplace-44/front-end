@@ -47,7 +47,6 @@ export const productList = [
 ]
 
 export const locationsData = [
-    'All Locations',
     'Newport News',
     'Walla Walla',
     'Timbuktu',
@@ -57,7 +56,6 @@ export const locationsData = [
 ]
 
 export const categoriesData = [
-    'All Categories',
     'Animal Products',
     'Beans',
     'Cereals',
