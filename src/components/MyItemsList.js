@@ -2,6 +2,7 @@ import react, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import { MarketContext } from '../contexts/MarketContext';
+import { initItem } from "./../InitData/initItem";
 
 const myInitialItems = {
     name: '',
