@@ -3,6 +3,8 @@ import { MarketContext } from "./../contexts/MarketContext";
 import axiosWithAuth from "./../utils/axiosWithAuth";
 import { v4 as uuidv4 } from 'uuid';
 
+import './NewItemForm.css'; //styles
+
 const initItem = {
   name: "",
   description: "",
@@ -49,63 +51,78 @@ const NewItemForm = () => {
   };
 
   return (
-    <div>
+    <div className="newItem-form">
       <form onSubmit={handleSubmit}>
-        <label htmlFor='name'>
-          Product:
-          <input
-            name='name'
-            type='text'
-            id='name'
-            placeholder='Product Name'
+        <div className="newItem-label">
+          <label htmlFor='name'>
+            Product:
+            <input
+              name='name'
+              type='text'
+              id='name'
+              placeholder='Product Name'
+              onChange={handleChange}
+              value={currentItem.name}
+            />
+          </label>
+        </div>
+        <div className='errors'></div>
+        <div className="newItem-label">
+          <label htmlFor='price'>
+            Price:
+            <input
+              name='price'
+              type='number'
+              id='price'
+              placeholder='0.00'
+              onChange={handleChange}
+              value={currentItem.price}
+            />
+          </label>
+        </div>
+        <div className='errors'></div>
+        <div className="newItem-label">
+          <label>
+            Item Category:
+            <select
+              onChange={handleChange}
+              value={currentItem.category}
+              name='category'
+              id='category'
+            >
+              <option key=''>---Select A Category---</option>
+              {categoryOptions}
+            </select>
+          </label>
+        </div>
+        <div className='errors'></div>
+        <div className="newItem-label">
+          <label>
+            Market Location:
+            <select
+              onChange={handleChange}
+              value={currentItem.location}
+              name='location'
+              id='location'
+            >
+              <option key=''>---Select A Location---</option>
+              {locationOptions}
+            </select>
+          </label>
+        </div>
+        <div className='errors'></div>
+        <div className="newItem-label">
+          <label htmlFor='description'>Description:</label>
+          <textarea
+            name='description'
+            id='description'
+            value={currentItem.description}
             onChange={handleChange}
-            value={currentItem.name}
-          />
-        </label>
-        <label htmlFor='price'>
-          Price:
-          <input
-            name='price'
-            type='number'
-            id='price'
-            placeholder='0.00'
-            onChange={handleChange}
-            value={currentItem.price}
-          />
-        </label>
-        <label>
-          Item Category:
-          <select
-            onChange={handleChange}
-            value={currentItem.category}
-            name='category'
-            id='category'
-          >
-            <option key=''>---Select A Category---</option>
-            {categoryOptions}
-          </select>
-        </label>
-        <label>
-          Market Location:
-          <select
-            onChange={handleChange}
-            value={currentItem.location}
-            name='location'
-            id='location'
-          >
-            <option key=''>---Select A Location---</option>
-            {locationOptions}
-          </select>
-        </label>
-        <label htmlFor='description'>Description:</label>
-        <textarea
-          name='description'
-          id='description'
-          value={currentItem.description}
-          onChange={handleChange}
-          rows='5'
-          cols='50'
-        ></textarea>
+            rows='5'
+            cols='50'
+          ></textarea>
+        </div>
+        <div className='errors'></div>
         <button className='submit'>Submit</button>
       </form>
     </div>
