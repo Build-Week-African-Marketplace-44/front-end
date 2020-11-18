@@ -33,9 +33,6 @@ const App = () => {
   return (
     <MarketContext.Provider value={[items, setItems, locations, categories]}>
       <div className='App'>
-        <header className='App-header'>
-          <h1>African Marketplace</h1>
-        </header>
         <Router>
           {isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : null}
 

@@ -13,16 +13,31 @@ const Dashboard = (props) => {
     }
 
     return (
-        <div>
-            <h2>Dashboard</h2>
-            <div className='links-container'>
-                <button className='dashboard-button' onClick={()=> {push('/')}}>My Store</button>
-                <button className='dashboard-button' onClick={()=> {push('/marketplace')}}>Marketplace</button>
-                <button className='dashboard-button' onClick={()=> {push('/new-item')}}>Add New Items</button>
-                <button className='dashboard-button' onClick={()=> {push('/profile')}}>Edit Profile</button>
-                <button className='dashboard-button' onClick={logout}>Log Out</button>
+        <section>
+            <div className="dash">
+                <div className="header">
+                    <h1>Dashboard</h1>
+                </div>
+
+                <div className='button-contain'>
+                    <button className='dashboard-button' onClick={()=> {push('/')}}>My Store</button>
+                    <button className='dashboard-button' onClick={()=> {push('/marketplace')}}>Marketplace</button>
+                    <div className="avi-contain">
+                        <div id="avi">
+                        </div>
+                        <label>
+                            Add New Items
+                            <button className='dashboard-button' onClick={()=> {push('/new-item')}}>+</button>
+                        </label>
+
+                    </div>
+
+                    <button className='dashboard-button' onClick={()=> {push('/profile')}}>Edit Profile</button>
+                    <button className='dashboard-button' onClick={logout}>Log Out</button>
+                </div>
             </div>
-        </div>
+
+        </section>
     )
 }
 
