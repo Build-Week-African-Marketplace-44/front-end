@@ -3,6 +3,7 @@ import axios from "axios";
 import * as yup from "yup";
 import signupScheme from "../validation/signupScheme";
 import { useHistory } from "react-router-dom";
+import axiosWithAuth from './../utils/axiosWithAuth';
 
 const post_URL = "https://african-marketplace-back-end.herokuapp.com";
 
@@ -50,7 +51,9 @@ export default function Login(props) {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("username", userData.username);
         console.log(res);
+        getUserId();
         props.setIsLoggedIn(true);
+
         push('/');
       })
       .catch((fuzz) => {
@@ -58,6 +61,20 @@ export default function Login(props) {
       });
     setUserData(initialUserData);
   };
+
+  const getUserId = () => {
+      axiosWithAuth()
+        .get('/users')
+        .then(res => {
+            let myUser = res.data.find(user => user.username === localStorage.getItem("username"))
+            console.log(res)
+            console.log(myUser.id)
+            props.setMyUserId(myUser.id)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+  }
 
   useEffect(() => {
     signupScheme.isValid(userData).then((valid) => {

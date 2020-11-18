@@ -1,28 +1,26 @@
 import React, { useState, useContext, useEffect } from "react";
 import { MarketContext } from "./../contexts/MarketContext";
-
-// {
-//     product: 'Maize Bran',
-//     price: 10,
-//     category: 'Cereals',
-//     subCategory: 'Maize',
-//     location: 'Newport News',
-//     seller: 'User Two',
-//     id: '04'
-// }
+import axiosWithAuth from "./../utils/axiosWithAuth";
+import { v4 as uuidv4 } from "uuid";
 
 const initItem = {
-  product: "",
+  name: "",
+  description: "",
   price: "",
   category: "",
   location: "",
-  seller: "",
+  user_id: "9",
+  URL: "www.url.com",
+  id: "",
 };
 
 const NewItemForm = () => {
-  const [items, setItems, locations, categories] = useContext(MarketContext);
+  const [items, setItems, locations, categories, myUserId] = useContext(
+    MarketContext
+  );
   const [currentItem, setCurrentItem] = useState(initItem);
 
+  // map categories abd locations from context to options for a dropdown
   let categoryOptions = categories.map((category) => (
     <option key={category}>{category}</option>
   ));
@@ -38,27 +36,33 @@ const NewItemForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let newItem = currentItem;
+    newItem.id = new Date().getUTCMilliseconds();
+    newItem.user_id = myUserId;
+    axiosWithAuth()
+      .post("/items/additem", newItem)
+      .then((req) => {
+        console.log(req);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-    // add user info to item
-
-    // axios post
-    
     console.log(newItem);
-    setCurrentItem(initItem)
+    setCurrentItem(initItem);
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor='product'>
+        <label htmlFor='name'>
           Product:
           <input
-            name='product'
+            name='name'
             type='text'
-            id='product'
+            id='name'
             placeholder='Product Name'
             onChange={handleChange}
-            value={currentItem.product}
+            value={currentItem.name}
           />
         </label>
         <label htmlFor='price'>
@@ -80,6 +84,7 @@ const NewItemForm = () => {
             name='category'
             id='category'
           >
+            <option key=''>---Select A Category---</option>
             {categoryOptions}
           </select>
         </label>
@@ -91,9 +96,19 @@ const NewItemForm = () => {
             name='location'
             id='location'
           >
+            <option key=''>---Select A Location---</option>
             {locationOptions}
           </select>
         </label>
+        <label htmlFor='description'>Description:</label>
+        <textarea
+          name='description'
+          id='description'
+          value={currentItem.description}
+          onChange={handleChange}
+          rows='5'
+          cols='50'
+        ></textarea>
         <button className='submit'>Submit</button>
       </form>
     </div>
