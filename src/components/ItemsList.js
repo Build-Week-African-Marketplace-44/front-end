@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { MarketContext } from "./../contexts/MarketContext";
-import axiosWithAUth from "./../utils/axiosWithAuth";
+import axiosWithAuth from "./../utils/axiosWithAuth";
 
 import Item from "./Item";
 
@@ -18,7 +18,7 @@ const ItemsList = () => {
   }, []);
 
   const getItemsData = () => {
-    axiosWithAUth()
+    axiosWithAuth()
       .get("/items")
       .then((req) => {
         console.log(req);
