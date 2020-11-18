@@ -1,0 +1,7 @@
+.newItem-form {
+    background-color: #3B5864;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
