@@ -11,12 +11,13 @@ import MyItemsList from './components/MyItemsList';
 import ProfileForm from './forms/ProfileForm';
 import NewItemForm from './forms/NewItemForm';
 import ItemsList from './components/ItemsList';
-
+import Landing from './components/Landing';
 // contexts
 import { MarketContext } from './contexts/MarketContext';
 
 // styles
 import './App.css';
+
 
 // export const MarketContext = createContext();
 const App = () => {
@@ -30,12 +31,13 @@ const App = () => {
     <MarketContext.Provider value={[items, setItems, locations, categories]}>
       
         <div className="App">
-          <header className="App-header">
+          {/* <header className="App-header">
             <h1>African Marketplace</h1>
-          </header>
+          </header> */}
             <Dashboard />
             <Router>
             <Switch>
+              <Route path='/Landing' component={Landing}/> 
               <Route exact path='/' component={MyItemsList} />
               <Route path='/marketplace' component={ItemsList} />
               <Route path='/new-item' component={NewItemForm} />
