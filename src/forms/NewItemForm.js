@@ -52,10 +52,10 @@ const NewItemForm = () => {
 
   return (
     <div className="newItem-form">
+      <h3>New Item</h3>
       <form onSubmit={handleSubmit}>
         <div className="newItem-label">
           <label htmlFor='name'>
-            Product:
             <input
               name='name'
               type='text'
@@ -69,12 +69,11 @@ const NewItemForm = () => {
         <div className='errors'></div>
         <div className="newItem-label">
           <label htmlFor='price'>
-            Price:
             <input
               name='price'
               type='number'
               id='price'
-              placeholder='0.00'
+              placeholder='price format 0.00'
               onChange={handleChange}
               value={currentItem.price}
             />
@@ -83,7 +82,7 @@ const NewItemForm = () => {
         <div className='errors'></div>
         <div className="newItem-label">
           <label>
-            Item Category:
+            Category:
             <select
               onChange={handleChange}
               value={currentItem.category}
@@ -98,7 +97,7 @@ const NewItemForm = () => {
         <div className='errors'></div>
         <div className="newItem-label">
           <label>
-            Market Location:
+           Location:
             <select
               onChange={handleChange}
               value={currentItem.location}
@@ -112,10 +111,11 @@ const NewItemForm = () => {
         </div>
         <div className='errors'></div>
         <div className="newItem-label">
-          <label htmlFor='description'>Description:</label>
+          <label htmlFor='description'></label>
           <textarea
             name='description'
             id='description'
+            placeholder="description"
             value={currentItem.description}
             onChange={handleChange}
             rows='5'

@@ -4,4 +4,52 @@
     justify-content: center;
     align-items: center;
     flex-flow: column wrap;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5em;
+    color: #E9C46A;
+    text-transform: uppercase;
 }
+
+.newItem-label input {
+    width: 75%;
+    border-radius: 15px;
+    border: 1px solid #E9C46A;
+    background-color: #1EC7C1;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em 6em 1em 1em;
+}
+
+.newItem-label select {
+    background-color: #1EC7C1;
+    border: 1px solid #E9C46A;
+    border-radius: 15px;
+    margin-left: 5em;
+}
+
+.newItem-label #location {
+    margin-left: 5.2em;
+}
+
+.newItem-label textarea {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: #1EC7C1;
+    border: 1px solid #E9C46A;
+    border-radius: 15px;
+    resize: none;
+    
+}
+
+.newItem-form button {
+    width: 30%;
+    border-radius: 15px;
+    text-align: center;
+    background-color: #E9C46A;
+    border: none;
+    padding: 1em;
+    margin-left: 10em;
+}
+
