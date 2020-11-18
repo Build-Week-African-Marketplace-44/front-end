@@ -27,26 +27,23 @@ const App = () => {
 
   return (
 
-<<<<<<< HEAD
-    <MarketContext.Provider value={[items, setItems]}>
-
-=======
     <MarketContext.Provider value={[items, setItems, locations, categories]}>
-      
->>>>>>> 849bb25f923c0d50a4cd675d23b5f61c05bc51f9
+
         <div className="App">
           <header className="App-header">
             <h1>Sauti Marketplace</h1>
           </header>
-            <Dashboard />
-            <Router>
-            <Switch>
-              <Route exact path='/' component={MyItemsList} />
-              <Route path='/marketplace' component={ItemsList} />
-              <Route path='/new-item' component={NewItemForm} />
-              <Route path='/profile' component={ProfileForm} />
-          </Switch>
-          </Router>
+            <div>
+              <Dashboard />
+              <Router>
+                <Switch>
+                  <Route exact path='/' component={MyItemsList} />
+                  <Route path='/marketplace' component={ItemsList} />
+                  <Route path='/new-item' component={NewItemForm} />
+                  <Route path='/profile' component={ProfileForm} />
+                </Switch>
+              </Router>
+            </div>
         </div>
 
     </MarketContext.Provider>
