@@ -15,7 +15,7 @@ import Signup from "./forms/Signup";
 import Login from "./forms/Login";
 
 import PrivateRoute from "./components/PrivateRoute";
-
+import axiosWithAuth from "./utils/axiosWithAuth"
 
 
 // contexts
@@ -31,9 +31,14 @@ const App = () => {
   const [locations, setLocations] = useState(locationsData);
   const [categories, setCategories] = useState(categoriesData);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [myUserId, setMyUserId] = useState("");
+
+
+
+
 
   return (
-    <MarketContext.Provider value={[items, setItems, locations, categories]}>
+    <MarketContext.Provider value={[items, setItems, locations, categories, myUserId]}>
       <div className='App'>
         <header className='App-header'>
           <h1>African Marketplace</h1>
@@ -50,7 +55,7 @@ const App = () => {
             <Route
               path='/login'
               render={(props) => {
-                return <Login {...props} setIsLoggedIn={setIsLoggedIn} />;
+                return <Login {...props} setIsLoggedIn={setIsLoggedIn} setMyUserId={setMyUserId}/>;
               }}
             />
           </Switch>

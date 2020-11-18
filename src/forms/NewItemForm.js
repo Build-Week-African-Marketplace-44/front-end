@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { MarketContext } from "./../contexts/MarketContext";
 import axiosWithAuth from "./../utils/axiosWithAuth";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 const initItem = {
   name: "",
@@ -11,11 +11,13 @@ const initItem = {
   location: "",
   user_id: "9",
   URL: "www.url.com",
-  id: ""
+  id: "",
 };
 
 const NewItemForm = () => {
-  const [items, setItems, locations, categories] = useContext(MarketContext);
+  const [items, setItems, locations, categories, myUserId] = useContext(
+    MarketContext
+  );
   const [currentItem, setCurrentItem] = useState(initItem);
 
   let categoryOptions = categories.map((category) => (
@@ -34,7 +36,7 @@ const NewItemForm = () => {
     e.preventDefault();
     let newItem = currentItem;
     newItem.id = new Date().getUTCMilliseconds();
-
+    newItem.user_id = myUserId;
     axiosWithAuth()
       .post("/items/additem", newItem)
       .then((req) => {
