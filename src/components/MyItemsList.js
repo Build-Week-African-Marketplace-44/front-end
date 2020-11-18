@@ -1,40 +1,50 @@
-import react, { useState, useEffect, useContext } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import axios from 'axios';
-import { MarketContext } from '../contexts/MarketContext';
-import { initItem } from "./../InitData/initItem";
-
-const myInitialItems = {
-    name: '',
-    category: '',
-    subCategory: '',
-    price: '',
-    location: ''
-};
+import React, { useState, useEffect, useContext } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import axios from "axios";
+import { MarketContext } from "./../contexts/MarketContext";
+import axiosWithAuth from "./../utils/axiosWithAuth";
+import Item from "./Item";
 
 const MyItemsList = (props) => {
+  const [items, setItems, locations, categories, myUserId] = useContext(
+    MarketContext
+  );
+  const [myItems, setMyItems] = useState(items);
 
-    const [items, setItems, locations, categories] = useContext(MarketContext)
-    const [myItems, setMyItems] = useState(myInitialItems)
+  useEffect(() => {
+    getItemsData();
+    // console.log(myItems);
+    // console.log(myUserId);
+  }, []);
 
-    useEffect(() => {
-        console.log(items);
-        const getMyItems = () => {
-            axios
-                .get('')
-                .then(res => {
-                    setMyItems(res.data);
-                })
-                .catch(error => console.log("You have an error", error));
-        };
-    }, []);
+  const getItemsData = () => {
+    axiosWithAuth()
+      .get("/items")
+      .then((req) => {
+        setMyItems(
+          req.data.filter((item) => {
+            // console.log(`item:${item.user_id} Mine:${myUserId}`)
+            return item.user_id === myUserId;
+          })
+        );
+        // setMyItems(req.data)
+        console.log(myItems);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    return (
-        <div className='myItemsList'>
-            <h1>My store</h1>
-            {}
-        </div>
-    )
-}
+  return (
+    <div className='myItemsList'>
+        <h1>My Store</h1>
+      <div className='items'>
+        {myItems.map((item) => (
+          <Item itemData={item} key={item.id} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default MyItemsList;
