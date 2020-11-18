@@ -11,11 +11,12 @@ import MyItemsList from "./components/MyItemsList";
 import ProfileForm from "./forms/ProfileForm";
 import NewItemForm from "./forms/NewItemForm";
 import ItemsList from "./components/ItemsList";
+import ItemPage from "./components/ItemPage";
 import Signup from "./forms/Signup";
 import Login from "./forms/Login";
 
 import PrivateRoute from "./components/PrivateRoute";
-
+import axiosWithAuth from "./utils/axiosWithAuth"
 
 
 // contexts
@@ -31,13 +32,15 @@ const App = () => {
   const [locations, setLocations] = useState(locationsData);
   const [categories, setCategories] = useState(categoriesData);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [myUserId, setMyUserId] = useState("");
+
+
+
+
 
   return (
-    <MarketContext.Provider value={[items, setItems, locations, categories]}>
+    <MarketContext.Provider value={[items, setItems, locations, categories, myUserId]}>
       <div className='App'>
-        <header className='App-header'>
-          <h1>African Marketplace</h1>
-        </header>
         <Router>
           {isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : null}
 
@@ -45,12 +48,13 @@ const App = () => {
             <PrivateRoute exact path='/' component={MyItemsList} />
             <PrivateRoute exact path='/marketplace' component={ItemsList} />
             <PrivateRoute exact path='/new-item' component={NewItemForm} />
+            <PrivateRoute path="/item/:id" component={ItemPage} />
             <PrivateRoute exact path='/profile' component={ProfileForm} />
             <Route path='/signup' component={Signup} />
             <Route
               path='/login'
               render={(props) => {
-                return <Login {...props} setIsLoggedIn={setIsLoggedIn} />;
+                return <Login {...props} setIsLoggedIn={setIsLoggedIn} setMyUserId={setMyUserId}/>;
               }}
             />
           </Switch>

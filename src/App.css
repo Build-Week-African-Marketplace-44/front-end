@@ -102,5 +102,82 @@ html, body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-right: 2px solid #E9C46A
+  border-right: 2px solid #E9C46A;
+}
+
+/* Dashboard Styles */
+
+.dash {
+  width: 100%;
+  background-color: #264653;
+  display: flex;
+  flex-flow: column wrap;
+  border-bottom: 2px solid #E9C46A; 
+}
+
+.header {
+  width: 100%;
+  background-color: #3B5864;
+
+}
+
+.header h1 {
+  color: #E9C46A;
+  text-align: center;
+  font-size: 2em;
+}
+
+.button-contain {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.button-contain button {
+  border: 4px solid #264653;
+  background-color: #E9C46A;
+  color: #264653;
+  border-radius: 50px;
+  width: 12%;
+  padding: 1%;
+  font-size: 3vh;
+  white-space: nowrap;
+}
+
+.avi-contain {
+  width: auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 2%;
+}
+
+.avi-contain label{ 
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: #E9C46A;
+  margin-top: 8px;
+}
+
+.avi-contain button {
+  text-align: center;
+  border-radius: 50%;
+  width: 75px;
+  padding: 7%;
+  margin: 2%;
+}
+
+#avi {
+  width: 350px;
+  height: 350px;
+  background-color: #3B5864;
+  border-radius: 50%;
+  border: 4px solid #E9C46A;
+  background-image: url("./content/luci.jpg")
 }

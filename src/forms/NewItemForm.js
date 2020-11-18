@@ -1,28 +1,28 @@
 import React, { useState, useContext, useEffect } from "react";
 import { MarketContext } from "./../contexts/MarketContext";
+import axiosWithAuth from "./../utils/axiosWithAuth";
+import { v4 as uuidv4 } from "uuid";
 
-// {
-//     product: 'Maize Bran',
-//     price: 10,
-//     category: 'Cereals',
-//     subCategory: 'Maize',
-//     location: 'Newport News',
-//     seller: 'User Two',
-//     id: '04'
-// }
+import './NewItemForm.css'; //styles
 
 const initItem = {
-  product: "",
+  name: "",
+  description: "",
   price: "",
   category: "",
   location: "",
-  seller: "",
+  user_id: "9",
+  URL: "www.url.com",
+  id: "",
 };
 
 const NewItemForm = () => {
-  const [items, setItems, locations, categories] = useContext(MarketContext);
+  const [items, setItems, locations, categories, myUserId] = useContext(
+    MarketContext
+  );
   const [currentItem, setCurrentItem] = useState(initItem);
 
+  // map categories abd locations from context to options for a dropdown
   let categoryOptions = categories.map((category) => (
     <option key={category}>{category}</option>
   ));
@@ -38,62 +38,94 @@ const NewItemForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let newItem = currentItem;
+    newItem.id = new Date().getUTCMilliseconds();
+    newItem.user_id = myUserId;
+    axiosWithAuth()
+      .post("/items/additem", newItem)
+      .then((req) => {
+        console.log(req);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-    // add user info to item
-
-    // axios post
-    
     console.log(newItem);
-    setCurrentItem(initItem)
+    setCurrentItem(initItem);
   };
 
   return (
-    <div>
+    <div className="newItem-form">
+      <h3>New Item</h3>
       <form onSubmit={handleSubmit}>
-        <label htmlFor='product'>
-          Product:
-          <input
-            name='product'
-            type='text'
-            id='product'
-            placeholder='Product Name'
+        <div className="newItem-label">
+          <label htmlFor='name'>
+            <input
+              name='name'
+              type='text'
+              id='name'
+              placeholder='Product Name'
+              onChange={handleChange}
+              value={currentItem.name}
+            />
+          </label>
+        </div>
+        <div className='errors'></div>
+        <div className="newItem-label">
+          <label htmlFor='price'>
+            <input
+              name='price'
+              type='number'
+              id='price'
+              placeholder='price format 0.00'
+              onChange={handleChange}
+              value={currentItem.price}
+            />
+          </label>
+        </div>
+        <div className='errors'></div>
+        <div className="newItem-label">
+          <label>
+            Category:
+            <select
+              onChange={handleChange}
+              value={currentItem.category}
+              name='category'
+              id='category'
+            >
+              <option key=''>---Select A Category---</option>
+              {categoryOptions}
+            </select>
+          </label>
+        </div>
+        <div className='errors'></div>
+        <div className="newItem-label">
+          <label>
+           Location:
+            <select
+              onChange={handleChange}
+              value={currentItem.location}
+              name='location'
+              id='location'
+            >
+              <option key=''>---Select A Location---</option>
+              {locationOptions}
+            </select>
+          </label>
+        </div>
+        <div className='errors'></div>
+        <div className="newItem-label">
+          <label htmlFor='description'></label>
+          <textarea
+            name='description'
+            id='description'
+            placeholder="description"
+            value={currentItem.description}
             onChange={handleChange}
-            value={currentItem.product}
-          />
-        </label>
-        <label htmlFor='price'>
-          Price:
-          <input
-            name='price'
-            type='number'
-            id='price'
-            placeholder='0.00'
-            onChange={handleChange}
-            value={currentItem.price}
-          />
-        </label>
-        <label>
-          Item Category:
-          <select
-            onChange={handleChange}
-            value={currentItem.category}
-            name='category'
-            id='category'
-          >
-            {categoryOptions}
-          </select>
-        </label>
-        <label>
-          Market Location:
-          <select
-            onChange={handleChange}
-            value={currentItem.location}
-            name='location'
-            id='location'
-          >
-            {locationOptions}
-          </select>
-        </label>
+            rows='5'
+            cols='50'
+          ></textarea>
+        </div>
+        <div className='errors'></div>
         <button className='submit'>Submit</button>
       </form>
     </div>
