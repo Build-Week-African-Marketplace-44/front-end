@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect } from "react";
 import { MarketContext } from "./../contexts/MarketContext";
 import axiosWithAuth from "./../utils/axiosWithAuth";
 
+import './ItemsList.css' //styles
+
 import Item from "./Item";
 
 const ItemsList = () => {
@@ -86,30 +88,34 @@ const ItemsList = () => {
       <header>
         <h1>Marketplace</h1>
         <form onSubmit={handleSubmit}>
-          <label>
-            Item Category:&nbsp;
-            <select
-              onChange={handleCategoryChange}
-              value={categoryValue}
-              name='category'
-              id='category'
-            >
-              <option key='All Categories'>All Categories</option>
-              {categoryOptions}
-            </select>
-          </label>
-          <label>
-            Location:&nbsp;
-            <select
-              onChange={handleLocationChange}
-              value={locationValue}
-              name='location'
-              id='location'
-            >
-              <option key='All Locations'>All Locations</option>
-              {locationOptions}
-            </select>
-          </label>
+          <div className="market-labels">
+            <label>
+              Item Category:&nbsp;
+              <select
+                onChange={handleCategoryChange}
+                value={categoryValue}
+                name='category'
+                id='category'
+              >
+                <option key='All Categories'>All Categories</option>
+                {categoryOptions}
+              </select>
+            </label>
+          </div>
+          <div>
+            <label className="market-labels">
+              Location:&nbsp;
+              <select
+                onChange={handleLocationChange}
+                value={locationValue}
+                name='location'
+                id='location'
+              >
+                <option key='All Locations'>All Locations</option>
+                {locationOptions}
+              </select>
+            </label>
+          </div>
           <button className='submit-button'>Go!</button>
         </form>
       </header>
