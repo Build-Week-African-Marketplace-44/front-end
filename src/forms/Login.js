@@ -71,7 +71,7 @@ export default function Login(props) {
         .then(res => {
             let myUser = res.data.find(user => user.username === localStorage.getItem("username"))
             // console.log(res)
-            console.log(myUser.id)
+            // console.log(myUser.id)
             props.setMyUserId(myUser.id)
         })
         .catch(err => {

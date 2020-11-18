@@ -10,12 +10,13 @@ const MyItemsList = (props) => {
     MarketContext
   );
   const [myItems, setMyItems] = useState(items);
+  const [deleteData, setDeleteData] = useState(null)
 
   useEffect(() => {
     getItemsData();
     // console.log(myItems);
     // console.log(myUserId);
-  }, []);
+  }, [deleteData]);
 
   const getItemsData = () => {
     axiosWithAuth()
@@ -40,7 +41,7 @@ const MyItemsList = (props) => {
         <h1>My Store</h1>
       <div className='items'>
         {myItems.map((item) => (
-          <Item itemData={item} key={item.id} />
+          <Item itemData={item} key={item.id} setDeleteData={setDeleteData}/>
         ))}
       </div>
     </div>
