@@ -29,9 +29,7 @@ const Dashboard = (props) => {
                             Add New Items
                             <button className='dashboard-button' onClick={()=> {push('/new-item')}}>+</button>
                         </label>
-
                     </div>
-
                     <button className='dashboard-button' onClick={()=> {push('/profile')}}>Edit Profile</button>
                     <button className='dashboard-button' onClick={logout}>Log Out</button>
                 </div>
