@@ -2,11 +2,8 @@ import react, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axiosWithAUth from './../utils/axiosWithAuth';
 import { MarketContext } from '../contexts/MarketContext';
-<<<<<<< HEAD
 import { initItem } from "./../InitData/initItem";
-=======
 import Item from '../components/Item'
->>>>>>> cd53b29d16bb9a73ca86392c50cc1a6bbcb64d37
 
 const MyItemsList = () => {
     const [items, setItems, locations, categories] = useContext(MarketContext);
