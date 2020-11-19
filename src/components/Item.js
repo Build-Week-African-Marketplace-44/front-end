@@ -4,7 +4,6 @@ import axiosWithAuth from "./../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
 import { MarketContext } from "./../contexts/MarketContext";
 
-import '../style/Item.css'; //styles
 
 
 const Item = (props) => {

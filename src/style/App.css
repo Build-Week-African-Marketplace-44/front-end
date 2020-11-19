@@ -179,8 +179,7 @@ html, body {
   background-color: #3B5864;
   border-radius: 50%;
   border: 4px solid #E9C46A;
-<<<<<<< HEAD:src/App.css
-  background-image: url("./content/luci.jpg")
+  background-image: url("../content/luci.jpg")
 }
 
 @media screen and (max-width: 600px) {
@@ -514,8 +513,3 @@ input[type=number]::-webkit-inner-spin-button {
   border-radius: 8px;
 }
 
-
-=======
-  background-image: url("../content/luci.jpg")
-}
->>>>>>> b5d5d5e25ffa8f2b0f61587569668279cfa4d2cb:src/style/App.css

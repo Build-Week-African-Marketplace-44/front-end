@@ -1,5 +1,5 @@
 import React from "react"
-import '../App.css'
+import '../style/App.css'
 import { useHistory } from 'react-router-dom';
 export default function Landing () {
 
