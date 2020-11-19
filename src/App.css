@@ -105,7 +105,7 @@ html, body {
   border-right: 2px solid #E9C46A;
 }
 
-/* Dashboard Styles */
+/* DASHBOARD */
 
 .dash {
   width: 100%;
@@ -180,4 +180,27 @@ html, body {
   border-radius: 50%;
   border: 4px solid #E9C46A;
   background-image: url("./content/luci.jpg")
+}
+
+@media screen and (max-width: 600px) {
+  .button-contain{ 
+    height: 50vh;
+    justify-content: space-evenly;
+  }
+  .button-contain button { 
+    width: 40%;
+    padding: 3%;
+  }
+  #avi {
+    display: none;
+  }
+  .avi-contain {
+    width: 100%;
+  }
+  .avi-contain button {
+    padding: 7%;
+  }
+  .avi-contain label {
+    font-size: 1em; 
+  }
 }
