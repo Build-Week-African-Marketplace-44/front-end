@@ -10,6 +10,10 @@
     margin-top: 5em;
     color: #E9C46A;
     text-transform: uppercase;
+    box-shadow: 10px 15px 15px #407185;
+    margin-bottom: 5em;
+    padding-bottom: 2em;
+    border-radius: 16px;
 }
 
 .newItem-label input {
@@ -27,6 +31,7 @@
     border: 1px solid #E9C46A;
     border-radius: 15px;
     margin-left: 5em;
+    margin-top: 1em;
 }
 
 .newItem-label #location {
@@ -34,13 +39,13 @@
 }
 
 .newItem-label textarea {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
     background-color: #1EC7C1;
     border: 1px solid #E9C46A;
     border-radius: 15px;
     resize: none;
-    
+    width: 97%;
 }
 
 .newItem-form button {
@@ -53,3 +58,38 @@
     margin-left: 10em;
 }
 
+@media (max-width:1200px) {
+    .newItem-label input {
+        width: 60%;
+        margin-left: 2em;
+    }
+
+    .label-text {
+        margin-left: 2em;
+    }
+
+    .newItem-label select {
+        margin-left: 2em;
+    }
+
+    .newItem-label #location {
+        margin-left: 2.2em;
+    }
+
+    .newItem-label textarea {
+        width: 80%;
+        margin-left: 2em;
+    }
+
+    .newItem-form button {
+        width: 25%;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .newItem-form {
+        width: 90%;
+    }
+
+}
