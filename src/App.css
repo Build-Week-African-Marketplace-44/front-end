@@ -169,8 +169,7 @@ html, body {
   text-align: center;
   border-radius: 50%;
   width: 75px;
-  padding: 15px;
-  margin: 2%;
+  height: 75px;
 }
 
 #avi {
@@ -201,7 +200,7 @@ html, body {
   }
   .avi-contain button {
     width: 60px;
-    padding: 5%;
+    height: 60px;
   }
   #avi {
     width: 175px;
@@ -224,8 +223,8 @@ html, body {
     width: 100%;
   }
   .avi-contain button {
-    width: 60px;
-    padding: 6%;
+    width: 40px;
+    height: 40px;
   }
   .avi-contain label {
     font-size: 1em; 
