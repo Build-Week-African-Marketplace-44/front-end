@@ -73,6 +73,7 @@ export default function Login(props) {
             // console.log(res)
             // console.log(myUser.id)
             props.setMyUserId(myUser.id)
+            localStorage.setItem("myUserId", myUser.id)
         })
         .catch(err => {
             console.log(err)

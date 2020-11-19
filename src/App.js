@@ -34,9 +34,28 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [myUserId, setMyUserId] = useState("");
 
+useEffect(() => {
+  if(localStorage.getItem('token')) {
+    setIsLoggedIn(true);
+  }
+  if(localStorage.getItem('myUserId')) {
+    setMyUserId(localStorage.getItem('myUserId'))
+  }
+  getItemsData();
+}, [])
 
-
-
+const getItemsData = () => {
+  axiosWithAuth()
+    .get("/items")
+    .then((req) => {
+      // console.log(req.data)
+      setItems(req.data);
+      console.log(items);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
   return (
     <MarketContext.Provider value={[items, setItems, locations, categories, myUserId]}>

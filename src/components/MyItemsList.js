@@ -10,38 +10,48 @@ const MyItemsList = (props) => {
     MarketContext
   );
   const [myItems, setMyItems] = useState(items);
-  const [deleteData, setDeleteData] = useState(null)
+  const [deleteData, setDeleteData] = useState(null);
+  // const [myUserId, setMyUserId] = useState("")
 
   useEffect(() => {
-    getItemsData();
+    console.log(`User ID: ${myUserId}`);
+    console.log(items);
+    // getItemsData();
     // console.log(myItems);
     // console.log(myUserId);
+    setMyItems(
+      items.filter((item) => {
+        console.log(`item:${item.user_id} Mine:${myUserId}`)
+        return item.user_id === myUserId;
+      })
+    );
+    console.log(`My Items: ${myItems}`)
   }, [deleteData]);
 
-  const getItemsData = () => {
-    axiosWithAuth()
-      .get("/items")
-      .then((req) => {
-        setMyItems(
-          req.data.filter((item) => {
-            // console.log(`item:${item.user_id} Mine:${myUserId}`)
-            return item.user_id === myUserId;
-          })
-        );
-        // setMyItems(req.data)
-        console.log(myItems);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const getItemsData = () => {
+  //   axiosWithAuth()
+  //     .get("/items")
+  //     .then((req) => {
+  //       setMyItems(
+  //         req.data.filter((item) => {
+  //           // console.log(`item:${item.user_id} Mine:${myUserId}`)
+  //           return item.user_id === myUserId;
+  //         })
+  //       );
+  //       // setMyItems(req.data)
+  //       console.log(myItems);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   return (
     <div className='myItemsList'>
-        <h1>My Store</h1>
+      <h1>My Store</h1>
       <div className='items'>
         {myItems.map((item) => (
-          <Item itemData={item} key={item.id} setDeleteData={setDeleteData}/>
+          <Item itemData={item} key={item.id} setDeleteData={setDeleteData} />
         ))}
       </div>
     </div>
