@@ -60,13 +60,13 @@ export const categoriesData = [
     'Beans',
     'Candy',
     'Cereals',
-    'Cereals-Other',
     'Coffee',
-    'corn',
+    'Electronics',
     'Fruits',
+    'Mechanical',
     'Peas',
     'Roots & Tubers',
     'Seeds & Nuts',
-    'Vegetable',
-    'Vegetables'
+    'Textiles',
+    'Vegetables',
 ]
