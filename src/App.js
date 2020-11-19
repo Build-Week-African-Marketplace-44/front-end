@@ -14,6 +14,7 @@ import ItemsList from "./components/ItemsList";
 import ItemPage from "./components/ItemPage";
 import Signup from "./forms/Signup";
 import Login from "./forms/Login";
+import Landing from "./components/Landing"
 
 import PrivateRoute from "./components/PrivateRoute";
 import axiosWithAuth from "./utils/axiosWithAuth"
@@ -69,18 +70,6 @@ const getItemsData = () => {
     });
 };
 
-// const getItemsData = () => {
-//   axiosWithAuth()
-//     .get("/items")
-//     .then((req) => {
-//       // console.log(req.data)
-//       setItems(req.data);
-//       console.log(`items: ${items}`);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
 
   return (
     <MarketContext.Provider value={[items, setItems, locations, categories, myUserId, setMyUserId]}>
@@ -94,6 +83,7 @@ const getItemsData = () => {
             <PrivateRoute exact path='/new-item' component={NewItemForm} />
             <PrivateRoute path="/item/:id" component={ItemPage} />
             <PrivateRoute exact path='/profile' component={ProfileForm} />
+            <Route exact path="/" component={Landing} />
             <Route path='/signup' component={Signup} />
             <Route
               path='/login'
