@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ItemPage from "./ItemPage";
 import axiosWithAuth from "./../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
@@ -7,9 +7,19 @@ import { MarketContext } from "./../contexts/MarketContext";
 import "./Item.css"; //styles
 
 const Item = (props) => {
-  const [items, setItems, locations, categories, myUserId] = useContext(
+  const [items, setItems, locations, categories, myUserId, setMyUserId, userList, setUserList] = useContext(
     MarketContext
   );
+
+  const [seller, setSeller] = useState([])
+
+  useEffect(() => {
+    setSeller(
+      userList.find(user => {
+        return user.id === props.itemData.user_id
+      })
+    )
+  }, [])
 
   const { push } = useHistory();
 
@@ -37,6 +47,7 @@ const Item = (props) => {
         <p>Price: {props.itemData.price}</p>
         <p>Market Location: {props.itemData.location}</p>
         <p>Category: {props.itemData.category}</p>
+        <p>Seller: {seller.username}</p>
         {props.itemData.user_id === myUserId ? (
           <button onClick={deleteHandler}>delete</button>
         ) : null}

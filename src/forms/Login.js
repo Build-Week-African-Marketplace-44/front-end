@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import * as yup from "yup";
 import signupScheme from "../validation/signupScheme";
 import { useHistory } from "react-router-dom";
 import axiosWithAuth from './../utils/axiosWithAuth';
+import { MarketContext } from "./../contexts/MarketContext";
 
 const post_URL = "https://african-marketplace-back-end.herokuapp.com";
 
@@ -26,6 +27,11 @@ export default function Login(props) {
   const [userData, setUserData] = useState(initialUserData);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [buttonDisabled, setButtonDisabled] = useState(initialButtonDisabled);
+  const [items, setItems, locations, categories, myUserId, setMyUserId, userList, setUserList] = useContext(
+    MarketContext
+  );
+
+
   const changeHandle = (event) => {
     const { name, value, checked, type } = event.target;
     const correctValue = type === "checkbox" ? checked : value;
@@ -69,6 +75,7 @@ export default function Login(props) {
             let myUser = res.data.find(user => user.username === localStorage.getItem("username"))
             props.setMyUserId(myUser.id)
             localStorage.setItem("myUserId", myUser.id)
+            setUserList(res.data);
         })
         .catch(err => {
             console.log(err)
