@@ -57,7 +57,7 @@ const MyItemsList = (props) => {
   return (
     <div className='myItemsList'>
       {/* {getItemsData()} */}
-      <h1>My Store</h1>
+      <h1>{localStorage.getItem('username')}'s Store</h1>
       <div className='items'>
         {myItems.map((item) => (
           <Item itemData={item} key={item.id} setDeleteData={setDeleteData} />

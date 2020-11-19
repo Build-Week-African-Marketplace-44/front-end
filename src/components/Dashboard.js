@@ -18,7 +18,7 @@ const Dashboard = (props) => {
         <section>
             <div className="dash">
                 <div className="header">
-                    <h1>Dashboard</h1>
+                    <h1>Welcome, {localStorage.getItem('username')}</h1>
                 </div>
 
                 <div className='button-contain'>
