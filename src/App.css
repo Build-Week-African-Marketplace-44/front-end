@@ -521,3 +521,109 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 
+/* Edit Profile */
+
+.profile-form {
+  background-color: #3B5864;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+  color: #E9C46A;
+  box-shadow: 10px 15px 15px #407185;
+  margin-bottom: 5em;
+  padding-bottom: 2em;
+  border-radius: 16px;
+}
+
+.profile-form h3 {
+  text-transform: uppercase;
+}
+
+.profile-label {
+  text-transform: uppercase;
+}
+
+.profile-label input {
+  width: 75%;
+  border-radius: 15px;
+  border: 1px solid #E9C46A;
+  background-color: #1EC7C1;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 1em 6em 1em 1em;
+  
+}
+
+.profile-label select {
+  background-color: #1EC7C1;
+  border: 1px solid #E9C46A;
+  border-radius: 15px;
+  margin-left: 5em;
+  margin-top: 1em;
+}
+
+.profile-label #location {
+  margin-left: 5.2em;
+}
+
+.profile-label textarea {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  background-color: #1EC7C1;
+  border: 1px solid #E9C46A;
+  border-radius: 8px;
+  resize: none;
+  width: 97%;
+  text-justify: newspaper;
+}
+
+.profile-form button {
+  width: 30%;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #E9C46A;
+  border: none;
+  padding: 1em;
+  margin-left: 10em;
+}
+
+@media (max-width:1200px) {
+  .profile-label input {
+      width: 60%;
+      margin-left: 2em;
+  }
+
+  .profile-text {
+      margin-left: 2em;
+  }
+
+  .profile-label select {
+      margin-left: 2em;
+  }
+
+  .profile-label #location {
+      margin-left: 2.2em;
+  }
+
+  .profile-label textarea {
+      width: 80%;
+      margin-left: 2em;
+  }
+
+  .profile-form button {
+      width: 25%;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .profile-form {
+      width: 90%;
+  }
+
+}

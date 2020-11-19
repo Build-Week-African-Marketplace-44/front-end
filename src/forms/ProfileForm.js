@@ -51,9 +51,10 @@ const ProfileForm = () => {
       };
 
     return (
-        <div>
-            <h1>My Profile</h1>
+        <div className='profile-form'>
+            <h3>My Profile</h3>
             <form onSubmit={submitHandler}>
+            <div className='profile-label'>
                 <label>
                     Name:
                     <input
@@ -64,9 +65,8 @@ const ProfileForm = () => {
                         value={user.name}
                     />
                 </label>
-
-                <br/>
-
+            </div>
+            <div className="profile-label">
                 <label>
                     Email address:
                     <input
@@ -77,9 +77,8 @@ const ProfileForm = () => {
                         value={user.email}
                     />
                 </label>
-
-                <br/>
-
+            </div>
+            <div className="profile-label">
                 <label>
                     Address:
                     <input
@@ -90,11 +89,10 @@ const ProfileForm = () => {
                         value={user.address}
                     />
                 </label>
-
-                <br/>
-
+            </div>
+            <div className="profile-label">
                 <label>
-                    Location of store:
+                    Location:
                     <select name="location" editHandler={editHandler} value={user.locations}>
                         <option value='' >--- Select your Location ---</option>
                         <option value="Newport News">Newport News</option>
@@ -105,10 +103,9 @@ const ProfileForm = () => {
                         <option value="Cairo">Cairo</option>
                     </select>
                 </label>
-
-                <br/>
-
-                <label>
+            </div>
+            <div className="profile-label">
+               {/* <label>
                     Description of store:
                     <input
                         name='description'
@@ -117,11 +114,18 @@ const ProfileForm = () => {
                         placeholder='describe your store'
                         value={user.description}
                     />
-                </label>
-
-                <br/>
-
-                <button className='profile-form-button'>Submit</button>
+               </label>*/}
+               <textarea
+                    name='description'
+                    id='description'
+                    placeholder='describe your store'
+                    value={user.description}
+                    onChange={editHandler}
+                    rows='5'
+                    cols='50'
+                ></textarea>
+            </div>   
+            <button className='profile-form-button'>Submit</button>
             </form>
         </div>
     )
