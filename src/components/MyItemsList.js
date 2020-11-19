@@ -6,16 +6,33 @@ import axiosWithAuth from "./../utils/axiosWithAuth";
 import Item from "./Item";
 
 const MyItemsList = (props) => {
-  const [items, setItems, locations, categories, myUserId] = useContext(
+  const [items, setItems, locations, categories, myUserId, setMyUserId] = useContext(
     MarketContext
   );
   const [myItems, setMyItems] = useState(items);
+  const [deleteData, setDeleteData] = useState(null);
+  // const [myUserId, setMyUserId] = useState("")
+
+  console.log(`thisone: ${myUserId}`);
 
   useEffect(() => {
-    getItemsData();
+    console.log(`User ID: ${myUserId}`);
+    console.log(items);
+    // getItemsData();
     // console.log(myItems);
     // console.log(myUserId);
+    getItemsData();
+    console.log(items);
+    // setMyItems(
+    //   items.filter((item) => {
+    //     // console.log(`item:${item.user_id} Mine:${myUserId}`)
+    //     return item.user_id === myUserId;
+    //   })
+    // );
+    console.log(`My Items: ${myItems}`)
   }, []);
+
+
 
   const getItemsData = () => {
     axiosWithAuth()
@@ -35,12 +52,15 @@ const MyItemsList = (props) => {
       });
   };
 
+  // getItemsData();
+
   return (
     <div className='myItemsList'>
-        <h1>My Store</h1>
+      {/* {getItemsData()} */}
+      <h1>{localStorage.getItem('username')}'s Store</h1>
       <div className='items'>
         {myItems.map((item) => (
-          <Item itemData={item} key={item.id} />
+          <Item itemData={item} key={item.id} setDeleteData={setDeleteData} />
         ))}
       </div>
     </div>

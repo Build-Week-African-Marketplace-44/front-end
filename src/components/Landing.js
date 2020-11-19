@@ -18,8 +18,8 @@ export default function Landing () {
             </div>
             <div className="lcontain">
                 <h1>Drive your product to the best it can be</h1>
-                <button onClick={()=> {push('/login')}}>Login</button>
-                <button onClick={()=> {push('/signup')}}>signup</button>
+                <button onClick={()=>{push('/login')}}>Login</button>
+                <button onClick={()=>{push('/signup')}}>Sign Up</button>
             </div>
         </div>
         </>

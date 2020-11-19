@@ -53,11 +53,8 @@ export default function Login(props) {
         console.log(res);
        
         props.setIsLoggedIn(true);
-
-        push('/');
-      })
-      .then(() => {
         getUserId();
+        push('/marketplace');
       })
       .catch((fuzz) => {
         console.log("You got an error", fuzz);
@@ -70,9 +67,8 @@ export default function Login(props) {
         .get('/users')
         .then(res => {
             let myUser = res.data.find(user => user.username === localStorage.getItem("username"))
-            // console.log(res)
-            console.log(myUser.id)
             props.setMyUserId(myUser.id)
+            localStorage.setItem("myUserId", myUser.id)
         })
         .catch(err => {
             console.log(err)

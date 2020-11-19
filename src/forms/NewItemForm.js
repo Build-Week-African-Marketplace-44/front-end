@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect } from "react";
 import { MarketContext } from "./../contexts/MarketContext";
 import axiosWithAuth from "./../utils/axiosWithAuth";
 import { v4 as uuidv4 } from "uuid";
+import * as yup from "yup";
+import newItemScheme from '../validation/newItemScheme'
 
 import '../style/NewItemForm.css'; //styles
 
@@ -11,16 +13,27 @@ const initItem = {
   price: "",
   category: "",
   location: "",
-  user_id: "9",
+  user_id: "",
   URL: "www.url.com",
   id: "",
 };
+
+const initItemErrors = {
+  name: "",
+  price: "",
+  category: "",
+  location: "",
+};
+
+const initialButtonDisabled = true;
 
 const NewItemForm = () => {
   const [items, setItems, locations, categories, myUserId] = useContext(
     MarketContext
   );
   const [currentItem, setCurrentItem] = useState(initItem);
+  const [itemErrors, setItemErrors] = useState(initItemErrors);
+  const [buttonDisabled, setButtonDisabled] = useState(initialButtonDisabled);
 
   // map categories abd locations from context to options for a dropdown
   let categoryOptions = categories.map((category) => (
@@ -31,8 +44,22 @@ const NewItemForm = () => {
     <option key={location}>{location}</option>
   ));
 
-  const handleChange = (e) => {
-    setCurrentItem({ ...currentItem, [e.target.name]: e.target.value });
+  const handleChange = (event) => {
+
+    const { name, value, checked, type } = event.target;
+    const correctValue = type === "checkbox" ? checked : value;
+
+    yup
+      .reach(newItemScheme, name)
+      .validate(correctValue)
+      .then(() => {
+        setItemErrors({ ...itemErrors, [name]: "" });
+      })
+      .catch((err) => {
+        setItemErrors({ ...itemErrors, [name]: err.errors[0] });
+      });
+
+    setCurrentItem({ ...currentItem, [name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -53,11 +80,18 @@ const NewItemForm = () => {
     setCurrentItem(initItem);
   };
 
+  useEffect(() => {
+    newItemScheme.isValid(currentItem).then((valid) => {
+      setButtonDisabled(!valid);
+    });
+  }, [currentItem]);
+
+
   return (
-    <div className="newItem-form">
+    <div className='newItem-form'>
       <h3>New Item</h3>
       <form onSubmit={handleSubmit}>
-        <div className="newItem-label">
+        <div className='newItem-label'>
           <label htmlFor='name'>
             <input
               name='name'
@@ -69,7 +103,7 @@ const NewItemForm = () => {
             />
           </label>
         </div>
-        <div className='errors'></div>
+        <div className='errors'>{itemErrors.name}</div>
         <div className="newItem-label">
           <label htmlFor='price'>
             <input
@@ -82,7 +116,7 @@ const NewItemForm = () => {
             />
           </label>
         </div>
-        <div className='errors'></div>
+        <div className='errors'>{itemErrors.price}</div>
         <div className="newItem-label">
           <label className="label-text">
             Category:
@@ -97,7 +131,7 @@ const NewItemForm = () => {
             </select>
           </label>
         </div>
-        <div className='errors'></div>
+        <div className='errors'>{itemErrors.category}</div>
         <div className="newItem-label">
           <label className="label-text">
            Location:
@@ -112,13 +146,13 @@ const NewItemForm = () => {
             </select>
           </label>
         </div>
-        <div className='errors'></div>
+        <div className='errors'>{itemErrors.location}</div>
         <div className="newItem-label">
           <label htmlFor='description'></label>
           <textarea
             name='description'
             id='description'
-            placeholder="description"
+            placeholder='description'
             value={currentItem.description}
             onChange={handleChange}
             rows='5'
@@ -126,7 +160,7 @@ const NewItemForm = () => {
           ></textarea>
         </div>
         <div className='errors'></div>
-        <button className='submit'>Submit</button>
+        <button className='submit' disabled={buttonDisabled}>Submit</button>
       </form>
     </div>
   );

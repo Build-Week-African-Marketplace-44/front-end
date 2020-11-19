@@ -23,7 +23,6 @@ const ItemsList = () => {
     axiosWithAuth()
       .get("/items")
       .then((req) => {
-        console.log(req);
         setCurrentItems(req.data);
       })
       .catch((err) => {
