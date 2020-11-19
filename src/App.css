@@ -50,6 +50,13 @@ html, body {
   border: none;
 }
 
+@media (max-width: 900px) {
+  .login-body button {
+      width: 40%;
+  }
+}
+
+/* Errors */
 .errors {
   color: darkred;
 }

@@ -82,7 +82,6 @@ export default function Login(props) {
   }, [userData]);
 
   return (
-    <div className='constraint'>
       <div className='login-body'>
         <h1>Log In</h1>
         <form onSubmit={submitHandle}>
@@ -113,6 +112,5 @@ export default function Login(props) {
           <button disabled={buttonDisabled}>Submit...</button>
         </form>
       </div>
-    </div>
   );
 }
