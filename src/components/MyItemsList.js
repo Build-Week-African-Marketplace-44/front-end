@@ -41,6 +41,8 @@ const MyItemsList = () => {
 
   locationOptions.unshift("All Locations");
 
+
+
     return (
         <div className='ItemsList'>
                 <h1>My Marketplace</h1>

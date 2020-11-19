@@ -70,10 +70,10 @@ const ProfileForm = () => {
                 <label>
                     Email address:
                     <input
-                        name='email address'
+                        name='email'
                         type='text'
                         onChange={editHandler}
-                        placeholder='email address'
+                        placeholder='email'
                         value={user.email}
                     />
                 </label>
