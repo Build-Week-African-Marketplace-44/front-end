@@ -88,7 +88,7 @@ export default function Login(props) {
           <input
             name='username'
             type='text'
-            placeholder='Full Name...'
+            placeholder='Username'
             value={userData.username}
             onChange={changeHandle}
           />
