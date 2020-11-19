@@ -36,6 +36,7 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [myUserId, setMyUserId] = useState("");
   const [myUserData, setMyUserData] = useState([])
+  const [userList, setUserList] = useState([]);
 
 useEffect(() => {
   if(localStorage.getItem('token')) {
@@ -73,7 +74,7 @@ const getItemsData = () => {
 
 
   return (
-    <MarketContext.Provider value={[items, setItems, locations, categories, myUserId, setMyUserId]}>
+    <MarketContext.Provider value={[items, setItems, locations, categories, myUserId, setMyUserId, userList, setUserList]}>
       <div className='App'>
 
         <Router>
