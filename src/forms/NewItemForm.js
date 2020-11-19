@@ -6,7 +6,6 @@ import * as yup from "yup";
 
 import newItemScheme from "../validation/newItemScheme";//validation
 
-import "./NewItemForm.css"; //styles
 
 const initItem = {
   name: "",
