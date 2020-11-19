@@ -3,7 +3,7 @@ import { MarketContext } from "./../contexts/MarketContext";
 import axiosWithAuth from "./../utils/axiosWithAuth";
 import { v4 as uuidv4 } from "uuid";
 
-import './NewItemForm.css'; //styles
+import '../style/NewItemForm.css'; //styles
 
 const initItem = {
   name: "",

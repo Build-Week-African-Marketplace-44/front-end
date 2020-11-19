@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { MarketContext } from "./../contexts/MarketContext";
 import axiosWithAuth from "./../utils/axiosWithAuth";
 
-import './ItemsList.css' //styles
+import '../style/ItemsList.css' //styles
 
 import Item from "./Item";
 

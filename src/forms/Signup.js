@@ -3,7 +3,7 @@ import axios from "axios";
 import * as yup from "yup";
 import { useHistory } from "react-router-dom"
 
-import "./Signup.css";
+import "../style/Signup.css";
 
 import signupScheme from "../validation/signupScheme";
 

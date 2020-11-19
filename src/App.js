@@ -15,6 +15,7 @@ import ItemPage from "./components/ItemPage";
 import Signup from "./forms/Signup";
 import Login from "./forms/Login";
 import Landing from './components/Landing'
+import Footer from './components/Footer'
 
 import PrivateRoute from "./components/PrivateRoute";
 import axiosWithAuth from "./utils/axiosWithAuth"
@@ -24,7 +25,7 @@ import axiosWithAuth from "./utils/axiosWithAuth"
 import { MarketContext } from "./contexts/MarketContext";
 
 // styles
-import "./App.css";
+import './style/App.css'
 
 
 // export const MarketContext = createContext();
@@ -44,7 +45,6 @@ const App = () => {
       <div className='App'>
 
         <Router>
-          <Route path='/landing' component={Landing} />
           {!isLoggedIn ? <Landing setIsLoggedIn={setIsLoggedIn} /> : isLoggedIn}
           {isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : null}
           <Switch>
@@ -60,7 +60,9 @@ const App = () => {
                 return <Login {...props} setIsLoggedIn={setIsLoggedIn} setMyUserId={setMyUserId}/>;
               }}
             />
+            <Route exact path='/landing' component={Landing} />
           </Switch>
+          <Footer/>
         </Router>
       </div>
     </MarketContext.Provider>

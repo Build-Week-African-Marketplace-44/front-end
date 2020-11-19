@@ -3,7 +3,7 @@ import ItemPage from "./ItemPage";
 import axiosWithAuth from "./../utils/axiosWithAuth"
 import { useHistory } from "react-router-dom";
 
-import './Item.css'; //styles
+import '../style/Item.css'; //styles
 
 
 const Item = (props) => {

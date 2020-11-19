@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './About.css';
+import './components/style/About';
 
 
 const persons = [
