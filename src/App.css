@@ -68,7 +68,7 @@ html, body {
   height: 100%;
   text-align: center;
   display: flex;
-  flex-flow: column wrap; 
+  flex-flow: column wrap;
   align-items: center;
   justify-content: center;
 }
@@ -112,7 +112,7 @@ html, body {
   background-color: #264653;
   display: flex;
   flex-flow: column wrap;
-  border-bottom: 2px solid #E9C46A; 
+  border-bottom: 2px solid #E9C46A;
 }
 
 .header {
@@ -155,7 +155,7 @@ html, body {
   margin: 2%;
 }
 
-.avi-contain label{ 
+.avi-contain label{
   display: flex;
   flex-flow: column nowrap;
   align-items: center;

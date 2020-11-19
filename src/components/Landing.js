@@ -13,8 +13,8 @@ export default function Landing () {
             </div>
             <div className="lcontain">
                 <h1>Drive your product to the best it can be</h1>
-                <Link to='/login'>Login</Link>
-                <Link to='/signup'>Sign Up</Link>
+                <Link className='button' to='/login'>Login</Link>
+                <Link className='button' to='/signup'>Sign Up</Link>
             </div>
         </div>
         </>

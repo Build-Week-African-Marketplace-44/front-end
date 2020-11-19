@@ -8,7 +8,7 @@ const Dashboard = (props) => {
 
     const logout = (p) => {
         localStorage.removeItem('token');
-        props.setIsLoggedIn(false); 
+        props.setIsLoggedIn(false);
         push('/login');
     }
 
@@ -16,7 +16,7 @@ const Dashboard = (props) => {
         <section>
             <div className="dash">
                 <div className="header">
-                    <h1>Dashboard</h1>
+                    <h1>Sauti Marketplace Dashboard</h1>
                 </div>
 
                 <div className='button-contain'>
