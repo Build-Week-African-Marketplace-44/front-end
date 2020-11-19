@@ -9,11 +9,18 @@
     margin-right: auto;
     margin-top: 5em;
     color: #E9C46A;
-    text-transform: uppercase;
     box-shadow: 10px 15px 15px #407185;
     margin-bottom: 5em;
     padding-bottom: 2em;
     border-radius: 16px;
+}
+
+.newItem-form h3 {
+    text-transform: uppercase;
+}
+
+.newItem-label {
+    text-transform: uppercase;
 }
 
 .newItem-label input {
@@ -24,6 +31,7 @@
     margin-top: 1em;
     margin-bottom: 1em;
     padding: 1em 6em 1em 1em;
+    
 }
 
 .newItem-label select {
@@ -34,6 +42,10 @@
     margin-top: 1em;
 }
 
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
 .newItem-label #location {
     margin-left: 5.2em;
 }
@@ -43,9 +55,10 @@
     margin-bottom: 2em;
     background-color: #1EC7C1;
     border: 1px solid #E9C46A;
-    border-radius: 15px;
+    border-radius: 8px;
     resize: none;
     width: 97%;
+    text-justify: newspaper;
 }
 
 .newItem-form button {
