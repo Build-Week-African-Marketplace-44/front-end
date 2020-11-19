@@ -14,7 +14,8 @@ import ItemsList from "./components/ItemsList";
 import ItemPage from "./components/ItemPage";
 import Signup from "./forms/Signup";
 import Login from "./forms/Login";
-import Landing from "./components/Landing"
+import Landing from './components/Landing'
+import Footer from './components/Footer'
 
 import PrivateRoute from "./components/PrivateRoute";
 import axiosWithAuth from "./utils/axiosWithAuth"
@@ -24,7 +25,7 @@ import axiosWithAuth from "./utils/axiosWithAuth"
 import { MarketContext } from "./contexts/MarketContext";
 
 // styles
-import "./App.css";
+import './style/App.css'
 
 
 // export const MarketContext = createContext();
@@ -74,9 +75,10 @@ const getItemsData = () => {
   return (
     <MarketContext.Provider value={[items, setItems, locations, categories, myUserId, setMyUserId]}>
       <div className='App'>
-        <Router>
-          {isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : null}
 
+        <Router>
+          {!isLoggedIn ? <Landing setIsLoggedIn={setIsLoggedIn} /> : isLoggedIn}
+          {isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : null}
           <Switch>
             <PrivateRoute exact path='/mystore' component={MyItemsList} />
             <PrivateRoute exact path='/marketplace' component={ItemsList} />
@@ -91,7 +93,9 @@ const getItemsData = () => {
                 return <Login {...props} setIsLoggedIn={setIsLoggedIn} setMyUserId={setMyUserId}/>;
               }}
             />
+            <Route exact path='/landing' component={Landing} />
           </Switch>
+          <Footer/>
         </Router>
       </div>
     </MarketContext.Provider>

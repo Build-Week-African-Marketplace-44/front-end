@@ -43,7 +43,7 @@ const ProfileForm = () => {
           .put(`https://african-marketplace-back-end.herokuapp.com/users/${id}`, user)
           .then((res)=>{
             setUser(res.data);
-            push(`/marketplace/${id}`);
+            push(`/marketplace/`);
           })
           .catch(err=>{
             console.log(err);
@@ -70,10 +70,10 @@ const ProfileForm = () => {
                 <label>
                     Email address:
                     <input
-                        name='email address'
+                        name='email'
                         type='text'
                         onChange={editHandler}
-                        placeholder='email address'
+                        placeholder='email'
                         value={user.email}
                     />
                 </label>
@@ -121,7 +121,7 @@ const ProfileForm = () => {
 
                 <br/>
 
-                <button className='profile-form-button'>Submit</button>
+                <button className='profile-form-button' onClick={()=> {push('/')}}>Submit</button>
             </form>
         </div>
     )

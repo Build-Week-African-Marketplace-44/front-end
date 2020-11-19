@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './components/style/About';
+
 
 const persons = [
     {
