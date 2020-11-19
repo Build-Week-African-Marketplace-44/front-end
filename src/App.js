@@ -16,7 +16,7 @@ import Signup from "./forms/Signup";
 import Login from "./forms/Login";
 
 import PrivateRoute from "./components/PrivateRoute";
-import axiosWithAuth from "./utils/axiosWithAuth"
+import axiosWithAuth from "./utils/axiosWithAuth";
 
 
 // contexts
