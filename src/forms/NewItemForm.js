@@ -3,7 +3,7 @@ import { MarketContext } from "./../contexts/MarketContext";
 import axiosWithAuth from "./../utils/axiosWithAuth";
 import { v4 as uuidv4 } from "uuid";
 
-import './NewItemForm.css'; //styles
+import "./NewItemForm.css"; //styles
 
 const initItem = {
   name: "",
@@ -11,7 +11,7 @@ const initItem = {
   price: "",
   category: "",
   location: "",
-  user_id: "9",
+  user_id: "",
   URL: "www.url.com",
   id: "",
 };
@@ -54,10 +54,10 @@ const NewItemForm = () => {
   };
 
   return (
-    <div className="newItem-form">
+    <div className='newItem-form'>
       <h3>New Item</h3>
       <form onSubmit={handleSubmit}>
-        <div className="newItem-label">
+        <div className='newItem-label'>
           <label htmlFor='name'>
             <input
               name='name'
@@ -70,7 +70,7 @@ const NewItemForm = () => {
           </label>
         </div>
         <div className='errors'></div>
-        <div className="newItem-label">
+        <div className='newItem-label'>
           <label htmlFor='price'>
             <input
               name='price'
@@ -113,12 +113,12 @@ const NewItemForm = () => {
           </label>
         </div>
         <div className='errors'></div>
-        <div className="newItem-label">
+        <div className='newItem-label'>
           <label htmlFor='description'></label>
           <textarea
             name='description'
             id='description'
-            placeholder="description"
+            placeholder='description'
             value={currentItem.description}
             onChange={handleChange}
             rows='5'

@@ -8,6 +8,8 @@ const Dashboard = (props) => {
 
     const logout = (p) => {
         localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        localStorage.removeItem('myUserId');
         props.setIsLoggedIn(false); 
         push('/login');
     }
@@ -20,7 +22,7 @@ const Dashboard = (props) => {
                 </div>
 
                 <div className='button-contain'>
-                    <button className='dashboard-button' onClick={()=> {push('/')}}>My Store</button>
+                    <button className='dashboard-button' onClick={()=> {push('/mystore')}}>My Store</button>
                     <button className='dashboard-button' onClick={()=> {push('/marketplace')}}>Marketplace</button>
                     <div className="avi-contain">
                         <div id="avi">
