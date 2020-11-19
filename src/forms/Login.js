@@ -53,12 +53,12 @@ export default function Login(props) {
         console.log(res);
        
         props.setIsLoggedIn(true);
-
-        push('/');
-      })
-      .then(() => {
         getUserId();
+        push('/marketplace');
       })
+      // .then(() => {
+      //   getUserId();
+      // })
       .catch((fuzz) => {
         console.log("You got an error", fuzz);
       });

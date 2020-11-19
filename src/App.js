@@ -28,43 +28,68 @@ import "./App.css";
 
 // export const MarketContext = createContext();
 const App = () => {
-  const [items, setItems] = useState(productList);
+  const [items, setItems] = useState([]);
   const [locations, setLocations] = useState(locationsData);
   const [categories, setCategories] = useState(categoriesData);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [myUserId, setMyUserId] = useState("");
+  const [myUserData, setMyUserData] = useState([])
 
 useEffect(() => {
   if(localStorage.getItem('token')) {
     setIsLoggedIn(true);
   }
+
   if(localStorage.getItem('myUserId')) {
     setMyUserId(localStorage.getItem('myUserId'))
+    console.log(`useridhere: ${myUserId}`);
   }
-  getItemsData();
+  getItemsData()
+  console.log(`user Data: ${myUserData}`);
+  // setMyUserId(localStorage.getItem('myUserId'));
+  // console.log(myUserId);
+  // getItemsData();
 }, [])
 
 const getItemsData = () => {
   axiosWithAuth()
     .get("/items")
     .then((req) => {
-      // console.log(req.data)
-      setItems(req.data);
-      console.log(items);
+      setMyUserData(
+        req.data.filter((item) => {
+          // console.log(`item:${item.user_id} Mine:${myUserId}`)
+          console.log(item)
+          return item.user_id === myUserId;
+        })
+      );
+      // setMyItems(req.data)
     })
     .catch((err) => {
       console.log(err);
     });
 };
 
+// const getItemsData = () => {
+//   axiosWithAuth()
+//     .get("/items")
+//     .then((req) => {
+//       // console.log(req.data)
+//       setItems(req.data);
+//       console.log(`items: ${items}`);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };
+
   return (
-    <MarketContext.Provider value={[items, setItems, locations, categories, myUserId]}>
+    <MarketContext.Provider value={[items, setItems, locations, categories, myUserId, setMyUserId]}>
       <div className='App'>
         <Router>
           {isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : null}
 
           <Switch>
-            <PrivateRoute exact path='/' component={MyItemsList} />
+            <PrivateRoute exact path='/mystore' component={MyItemsList} />
             <PrivateRoute exact path='/marketplace' component={ItemsList} />
             <PrivateRoute exact path='/new-item' component={NewItemForm} />
             <PrivateRoute path="/item/:id" component={ItemPage} />

@@ -11,7 +11,7 @@ const initItem = {
   price: "",
   category: "",
   location: "",
-  user_id: "9",
+  user_id: "",
   URL: "www.url.com",
   id: "",
 };
