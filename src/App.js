@@ -14,6 +14,7 @@ import ItemsList from "./components/ItemsList";
 import ItemPage from "./components/ItemPage";
 import Signup from "./forms/Signup";
 import Login from "./forms/Login";
+import Landing from './components/Landing'
 
 import PrivateRoute from "./components/PrivateRoute";
 import axiosWithAuth from "./utils/axiosWithAuth"
@@ -41,9 +42,11 @@ const App = () => {
   return (
     <MarketContext.Provider value={[items, setItems, locations, categories, myUserId]}>
       <div className='App'>
-        <Router>
-          {isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : null}
 
+        <Router>
+          <Route path='/landing' component={Landing} />
+          {!isLoggedIn ? <Landing setIsLoggedIn={setIsLoggedIn} /> : isLoggedIn}
+          {isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : null}
           <Switch>
             <PrivateRoute exact path='/' component={MyItemsList} />
             <PrivateRoute exact path='/marketplace' component={ItemsList} />

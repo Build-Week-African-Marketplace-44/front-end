@@ -84,7 +84,7 @@ const NewItemForm = () => {
         </div>
         <div className='errors'></div>
         <div className="newItem-label">
-          <label>
+          <label className="label-text">
             Category:
             <select
               onChange={handleChange}
@@ -99,7 +99,7 @@ const NewItemForm = () => {
         </div>
         <div className='errors'></div>
         <div className="newItem-label">
-          <label>
+          <label className="label-text">
            Location:
             <select
               onChange={handleChange}

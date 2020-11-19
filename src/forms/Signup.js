@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as yup from "yup";
-import { useHistory } from "react-router-dom" 
+import { useHistory } from "react-router-dom"
 
 import "./Signup.css";
 
@@ -69,8 +69,7 @@ export default function Login() {
   }, [formValues]);
 
   return (
-    <div className='constraint'>
-      <div className='login-body'>
+      <div className='signup-body'>
         <h1>Sign Up</h1>
         <form onSubmit={submitHandle}>
           <input
@@ -100,6 +99,5 @@ export default function Login() {
           <button disabled={buttonDisabled}>Submit</button>
         </form>
       </div>
-    </div>
   );
 }
