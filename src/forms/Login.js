@@ -51,10 +51,13 @@ export default function Login(props) {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("username", userData.username);
         console.log(res);
-        getUserId();
+       
         props.setIsLoggedIn(true);
 
         push('/');
+      })
+      .then(() => {
+        getUserId();
       })
       .catch((fuzz) => {
         console.log("You got an error", fuzz);
@@ -67,7 +70,7 @@ export default function Login(props) {
         .get('/users')
         .then(res => {
             let myUser = res.data.find(user => user.username === localStorage.getItem("username"))
-            console.log(res)
+            // console.log(res)
             console.log(myUser.id)
             props.setMyUserId(myUser.id)
         })
