@@ -16,6 +16,7 @@ import Signup from "./forms/Signup";
 import Login from "./forms/Login";
 import Landing from './components/Landing';
 import Footer from './components/Footer';
+import About from './About'
 
 import PrivateRoute from "./components/PrivateRoute";
 import axiosWithAuth from "./utils/axiosWithAuth"
@@ -94,6 +95,7 @@ const getItemsData = () => {
               }}
             />
             <Route exact path='/landing' component={Landing} />
+            <Route path='/about' component={About} />
           </Switch>
           <Footer/>
         </Router>
