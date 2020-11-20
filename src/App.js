@@ -110,6 +110,7 @@ const App = () => {
             />
             <Route path='/about' component={About} />
           </Switch>
+          <Footer />
         </Router>
       </div>
     </MarketContext.Provider>
