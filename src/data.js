@@ -47,12 +47,23 @@ export const productList = [
 ]
 
 export const locationsData = [
-    'Newport News',
-    'Walla Walla',
-    'Timbuktu',
+    'Addis Ababa',
+    'Dadaab',
+    'Dar es Salaam',
+    'Dodoma',
+    'Djibouti',
+    'Gulu',
+    'Juba',
+    'Kampala',
+    'Kisumu',
+    'Malindi',
+    'Marsabit',
+    'Mbeya',
+    'Mombasa',
     'Nairobi',
-    'Cape Town',
-    'Cairo'
+    'Nakuru',
+    'Tabora',
+    
 ]
 
 export const categoriesData = [
@@ -64,7 +75,8 @@ export const categoriesData = [
     'Electronics',
     'Fruits',
     'Mechanical',
-    'Peas',
+    'Meat',
+    'Metal Goods',
     'Roots & Tubers',
     'Seeds & Nuts',
     'Textiles',
