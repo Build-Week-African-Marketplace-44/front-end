@@ -121,7 +121,7 @@ const ProfileForm = () => {
 
                 <br/>
 
-                <button className='profile-form-button' onClick={()=> {push('/mystore')}}>Submit</button>
+                <button className='profile-form-button' onClick={()=> {push('mystore')}}>Submit</button>
             </form>
         </div>
     )
