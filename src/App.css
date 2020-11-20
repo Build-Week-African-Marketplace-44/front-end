@@ -1,0 +1,232 @@
+html, body {
+  background-color: #264653;
+  width: 100%;
+  height: 100%;
+}
+
+.constraint {
+  width: 1200px;
+  margin: auto;
+}
+
+/* LOGIN PAGE */
+
+.login-body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  margin-top: 25vh;
+}
+
+.login-body h1 {
+  color: #E9C46A;
+}
+
+.login-body form {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.login-body input {
+  width: 75%;
+  padding: 12px;
+  margin: 8px;
+  border-radius: 15px;
+  border: 1px solid #E9C46A;
+  background-color: #3B5864;
+}
+
+.login-body button {
+  width: 20%;
+  margin: 8px;
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #E9C46A;
+  border: none;
+}
+
+.errors {
+  color: darkred;
+}
+
+/* LANDING PAGE */
+
+.landing {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.lcontain {
+  width: 47%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap; 
+  align-items: center;
+  justify-content: center;
+}
+
+.lcontain h1 {
+  color: #E9C46A;
+  text-align: center;
+  width: 40%;
+  font-size: 40px;
+}
+
+.lcontain button {
+  width: 20%;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #E9C46A;
+  border: 2px solid #3B5864;
+  font-size: 25px;
+  color: #3B5864;
+  -webkit-box-shadow: 9px 9px 20px -12px rgba(0,0,0,0.65);
+  -moz-box-shadow: 9px 9px 20px -12px rgba(0,0,0,0.65);
+  box-shadow: 9px 9px 20px -12px rgba(0,0,0,0.65);
+}
+
+.limage {
+  width: 50%;
+  height: 100%;
+  background-image: url('./content/market4.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-right: 2px solid #E9C46A;
+}
+
+/* DASHBOARD */
+
+.dash {
+  width: 100%;
+  background-color: #264653;
+  display: flex;
+  flex-flow: column wrap;
+  border-bottom: 2px solid #E9C46A; 
+}
+
+.header {
+  width: 100%;
+  background-color: #3B5864;
+
+}
+
+.header h1 {
+  color: #E9C46A;
+  text-align: center;
+  font-size: 2em;
+}
+
+.button-contain {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.button-contain button {
+  border: 4px solid #264653;
+  background-color: #E9C46A;
+  color: #264653;
+  border-radius: 50px;
+  width: 12%;
+  padding: 1%;
+  font-size: 3vh;
+  white-space: nowrap;
+}
+
+.avi-contain {
+  width: auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 2%;
+}
+
+.avi-contain label{ 
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: #E9C46A;
+  margin-top: 8px;
+}
+
+.avi-contain button {
+  text-align: center;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+}
+
+#avi {
+  width: 350px;
+  height: 350px;
+  background-color: #3B5864;
+  border-radius: 50%;
+  border: 4px solid #E9C46A;
+  background-image: url("./content/luci.jpg");
+  background-size: cover;
+
+}
+
+@media screen and (max-width: 1400px) {
+  .button-contain button {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .button-contain button {
+    width: 25%;
+    font-size: 18px;
+    margin: 5%;
+  }
+  .avi-contain {
+    width: 100%;
+  }
+  .avi-contain button {
+    width: 60px;
+    height: 60px;
+  }
+  #avi {
+    width: 175px;
+    height: 175px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .button-contain{ 
+    height: 50vh;
+  }
+  .button-contain button { 
+    width: 40%;
+    padding: 3%;
+  }
+  #avi {
+    display: none;
+  }
+  .avi-contain {
+    width: 100%;
+  }
+  .avi-contain button {
+    width: 40px;
+    height: 40px;
+  }
+  .avi-contain label {
+    font-size: 1em; 
+  }
+}

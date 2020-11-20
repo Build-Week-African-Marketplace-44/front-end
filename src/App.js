@@ -25,7 +25,8 @@ import axiosWithAuth from "./utils/axiosWithAuth";
 import { MarketContext } from "./contexts/MarketContext";
 
 // styles
-import "./style/App.css";
+// import "./style/App.css";
+import "./App.css";
 
 // export const MarketContext = createContext();
 const App = () => {
