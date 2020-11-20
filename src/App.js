@@ -65,6 +65,7 @@ const App = () => {
             return item.user_id === myUserId;
           })
         );
+        setItems(req.data);
         // setMyItems(req.data)
       })
       .catch((err) => {

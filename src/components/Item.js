@@ -8,7 +8,7 @@ import { MarketContext } from "./../contexts/MarketContext";
 import AlertDialog from "./AlertDialog";
 
 const initSeller = {
-  name: ""
+  username: ""
 }
 
 const Item = (props) => {
@@ -16,7 +16,7 @@ const Item = (props) => {
     MarketContext
   );
 
-  const [seller, setSeller] = useState([])
+  const [seller, setSeller] = useState(initSeller)
   const [openDialog, setOpenDialog] = useState(false)
 
   useEffect(() => {
@@ -26,6 +26,15 @@ const Item = (props) => {
         return user.id === props.itemData.user_id
       })
     )}
+    //  else {
+    //   axiosWithAuth()
+    //   .get('/users')
+    //   .then(res => {
+    //     setUserList(res.data)
+
+    //   })
+    // }
+    
   }, [])
 
   const { push } = useHistory();

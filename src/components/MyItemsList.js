@@ -32,6 +32,11 @@ const MyItemsList = (props) => {
     console.log(`My Items useEffect end: ${myItems}`)
   }, [deleteData]);
 
+  useEffect(() => {
+    setMyItems(items)
+    console.log(`items: ${items}`)
+  }, [items])
+
 
 
   const getItemsData = () => {

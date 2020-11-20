@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { MarketContext } from "./../contexts/MarketContext";
 import axiosWithAuth from "./../utils/axiosWithAuth";
 import { v4 as uuidv4 } from "uuid";
@@ -27,6 +28,8 @@ const initItemErrors = {
 const initialButtonDisabled = true;
 
 const NewItemForm = () => {
+  const { push } = useHistory();
+
   const [items, setItems, locations, categories, myUserId] = useContext(
     MarketContext
   );
@@ -70,6 +73,7 @@ const NewItemForm = () => {
       .post("/items/additem", newItem)
       .then((req) => {
         console.log(req);
+        push('mystore');
       })
       .catch((err) => {
         console.log(err);

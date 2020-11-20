@@ -29,15 +29,15 @@ const ItemsList = () => {
       });
   };
 
-  const setLocations = () => {
-    setLocationsList(
-      currentItems.map((item) => {
-        if (!locationsList.includes(item.location)) {
-          return item.location;
-        }
-      })
-    );
-  };
+  // const setLocations = () => {
+  //   setLocationsList(
+  //     currentItems.map((item) => {
+  //       if (!locationsList.includes(item.location)) {
+  //         return item.location;
+  //       }
+  //     })
+  //   );
+  // };
 
   let categoryOptions = categories.map((category) => (
     <option key={category}>{category}</option>
@@ -63,6 +63,7 @@ const ItemsList = () => {
     e.preventDefault();
     let itemsByCategory = items;
     let itemsByLocation = items;
+    console.log(`items: ${items}`)
     if (categoryValue !== "All Categories") {
       itemsByCategory = items.filter((item) => {
         return item.category === categoryValue;
