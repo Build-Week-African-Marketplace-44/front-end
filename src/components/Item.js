@@ -4,21 +4,24 @@ import axiosWithAuth from "./../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
 import { MarketContext } from "./../contexts/MarketContext";
 
-
+const initSeller = {
+  name: ""
+}
 
 const Item = (props) => {
   const [items, setItems, locations, categories, myUserId, setMyUserId, userList, setUserList] = useContext(
     MarketContext
   );
 
-  const [seller, setSeller] = useState([])
+  const [seller, setSeller] = useState(initSeller)
 
   useEffect(() => {
+    if (userList[0]) {
     setSeller(
       userList.find(user => {
         return user.id === props.itemData.user_id
       })
-    )
+    )}
   }, [])
 
   const { push } = useHistory();

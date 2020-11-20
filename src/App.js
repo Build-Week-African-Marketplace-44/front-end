@@ -14,8 +14,9 @@ import ItemsList from "./components/ItemsList";
 import ItemPage from "./components/ItemPage";
 import Signup from "./forms/Signup";
 import Login from "./forms/Login";
-import Landing from "./components/Landing";
-import Footer from "./components/Footer";
+import Landing from './components/Landing';
+import Footer from './components/Footer';
+import About from './About'
 
 import PrivateRoute from "./components/PrivateRoute";
 import axiosWithAuth from "./utils/axiosWithAuth";
@@ -107,6 +108,7 @@ const App = () => {
                 );
               }}
             />
+            <Route path='/about' component={About} />
           </Switch>
         </Router>
       </div>
