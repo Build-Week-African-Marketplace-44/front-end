@@ -13,23 +13,23 @@ const MyItemsList = (props) => {
   const [deleteData, setDeleteData] = useState(null);
   // const [myUserId, setMyUserId] = useState("")
 
-  console.log(`thisone: ${myUserId}`);
+  console.log(`my User Id inside MyItemsList function: ${myUserId}`);
 
   useEffect(() => {
-    console.log(`User ID: ${myUserId}`);
-    console.log(items);
+    console.log(`User ID MyItemsList useEffect start: ${myUserId}`);
+    // console.log(items);
     // getItemsData();
     // console.log(myItems);
     // console.log(myUserId);
     getItemsData();
-    console.log(items);
+    // console.log(items);
     // setMyItems(
     //   items.filter((item) => {
     //     // console.log(`item:${item.user_id} Mine:${myUserId}`)
     //     return item.user_id === myUserId;
     //   })
     // );
-    console.log(`My Items: ${myItems}`)
+    console.log(`My Items useEffect end: ${myItems}`)
   }, [deleteData]);
 
 
@@ -38,14 +38,16 @@ const MyItemsList = (props) => {
     axiosWithAuth()
       .get("/items")
       .then((req) => {
+        console.log(`request data: ${req.data}`)
         setMyItems(
           req.data.filter((item) => {
             // console.log(`item:${item.user_id} Mine:${myUserId}`)
             return item.user_id === myUserId;
+            //  return item.user_id === localStorage.getItem('myUserId')
           })
         );
         // setMyItems(req.data)
-        console.log(myItems);
+        console.log(`myItems after axios get: ${myItems}`);
       })
       .catch((err) => {
         console.log(err);
