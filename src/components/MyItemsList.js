@@ -30,7 +30,7 @@ const MyItemsList = (props) => {
     //   })
     // );
     console.log(`My Items: ${myItems}`)
-  }, []);
+  }, [deleteData]);
 
 
 

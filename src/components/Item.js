@@ -1,8 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
+import { render } from "react-dom";
+
 import ItemPage from "./ItemPage";
 import axiosWithAuth from "./../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
 import { MarketContext } from "./../contexts/MarketContext";
+import AlertDialog from "./AlertDialog";
 
 const initSeller = {
   name: ""
@@ -13,7 +16,8 @@ const Item = (props) => {
     MarketContext
   );
 
-  const [seller, setSeller] = useState(initSeller)
+  const [seller, setSeller] = useState([])
+  const [openDialog, setOpenDialog] = useState(false)
 
   useEffect(() => {
     if (userList[0]) {
@@ -34,7 +38,7 @@ const Item = (props) => {
     axiosWithAuth()
       .delete(`items/${props.itemData.id}`)
       .then((res) => {
-        push('/');
+        push('/mystore');
         console.log(res);
         props.setDeleteData(res.data);
       })
@@ -51,10 +55,15 @@ const Item = (props) => {
         <p>Market Location: {props.itemData.location}</p>
         <p>Category: {props.itemData.category}</p>
         <p>Seller: {seller.username}</p>
+        {/* {props.itemData.user_id === myUserId ? (
+          <button onClick={dialogHandler}>delete</button>
+        ) : null} */}
         {props.itemData.user_id === myUserId ? (
-          <button onClick={deleteHandler}>delete</button>
+          <AlertDialog deleteHandler={deleteHandler}/>
         ) : null}
-        {props.itemData.user_id === myUserId ? <button>edit</button> : null}
+        
+        {openDialog ? <AlertDialog /> : null}
+        {/* {props.itemData.user_id === myUserId ? <button>edit</button> : null} */}
       </div>
     </div>
   );
