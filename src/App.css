@@ -511,39 +511,54 @@ input[type=number]::-webkit-inner-spin-button {
 
 /*About */
 
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 .about-page {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .about-person {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 2em;
-  margin-left: 2em;
-  margin-right: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2em;
+    width: 20%;
 }
 
 .about-img img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 50%;
-  border: 2px #E9C46A solid;
+    border-radius: 50%;
+    border: 2px #E9C46A solid;
 }
 
 .about-person h1 {
-  text-align: center;
-  color: #E9C46A;
+    text-align: center;
+    color: #E9C46A;
 }
 
 .about-text {
-  text-align: center;
-  background-color: #E9C46A;
-  color: #264653;
-  border-radius: 8px;
+    text-align: center;
+    background-color: #E9C46A;
+    color: #264653;
+    border-radius: 8px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: x-large;
+    color: #102645;
+    padding: 1em;
+}
+
+@media (max-width: 1200px) {
+    .about-person {
+        width: 30%;
+    }
+}
+
+@media (max-width: 900px) {
+    .about-person {
+        width: 50%;
+    }
 }
 
 
